@@ -129,8 +129,8 @@ export default function Hero() {
           pointerEvents="none"
           display="flex"
           justifyContent="center"
-          alignItems="flex-start"
-          mt={{ base: 18, md: 12 }}
+          alignItems={{ base: 'flex-end', md: 'flex-start' }}
+          mt={{ base: 60, md: 12 }}
           ml={{ base: '0', md: '4%' }}
           sx={{
             maskImage:
@@ -145,11 +145,11 @@ export default function Hero() {
             aria-hidden="true"
             draggable={false}
             // Controlá el tamaño acá 👇
-            w={{ base: 'auto', md: '62vw' }}
+            w={{ base: '100%', md: '62vw' }}
             h={{ base: '100%', md: 'auto' }}
-            objectFit={{ base: 'cover', md: 'contain' }}
+            objectFit={{ base: 'contain', md: 'contain' }}
             objectPosition="center top"
-            opacity={{ base: 0.1, lg: 0.20 }}
+            opacity={{ base: 0.21, lg: 0.20 }}
             filter="grayscale(100%) contrast(1.05)"
             sx={{ mixBlendMode: 'luminosity' }}
           />
@@ -160,8 +160,8 @@ export default function Hero() {
           position="absolute"
           inset={0}
           zIndex={{base: 3, md: 5,  lg:9}}
-          pl={{ base: '30%', lg: '10%' }}
-          pt={{ base: '10%', lg: '5%' }}
+          pl={{ base: '20%', lg: '10%' }}
+          pt={{ base: '24%', lg: '5%' }}
           display="flex"
           justifyContent={{ base: 'flex-start', lg: 'flex-start' }}
           alignItems={{ base: 'flex-start', lg: 'flex-start' }}
@@ -183,8 +183,8 @@ export default function Hero() {
               className="player-photo"
               src={playerData.image}
               alt={`${playerData.displayName}, ${playerData.position.toLowerCase()} profesional de ${playerData.currentClub}`}
-              h="100%"
-              w={{ base: '68vw', lg: '30vw' }}
+              h={{ base: '90%', lg: '100%' }}
+              w={{ base: '58vw', lg: '30vw' }}
               objectFit="contain"
               objectPosition="bottom center"
               draggable={false}

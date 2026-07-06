@@ -13,11 +13,11 @@ const brand = {
   orange:     '#a36b2c', // naranja (hover de botones)
   orangeDark: '#7a4e1f', // naranja oscuro (hover de botones)
   orangeLight:'#c08b4a', // naranja claro (hover de botones)
-  dark:       '#532626', // azul casi negro (fondo)
+  dark:       '#2324249f',//'#532626', // azul casi negro (fondo)
   dark3:      '#232424a1',
   dark2:      '#a5a4a4',
   gray:       '#7A8CA3', // azul grisáceo (texto secundario)
-  gray2:      '#232424',
+  gray2:      '#884545',
   bone:       '#FFFFFF', // blanco (texto principal)
   boneWarm:   '#3083e2', // blanco azulado (detalles)
   accent:     '#1E5FA8', // azul de acento (glows, scrollbar, gradientes)

@@ -55,7 +55,7 @@ function MatchSlot({ data, label, labelColor }) {
               </Text>
             </HStack>
           ) : (
-            <Text fontFamily="heading" fontSize="xl" color="brand.brownLight" letterSpacing="wider">
+            <Text fontFamily="heading" fontSize="xl" color="brand.amber" letterSpacing="wider">
               VS
             </Text>
           )}
@@ -124,7 +124,7 @@ function CollapsedTab({ last, onClick }) {
       gap={4}
       transitionProperty="background, border-color"
       transitionDuration="0.3s"
-      _hover={{ bg: 'whiteAlpha.200', borderColor: 'brand.amberLight' }}
+      _hover={{ bg: 'whiteAlpha.200', borderColor: 'brand.gray2' }}
       _before={{
         content: '""',
         position: 'absolute',
@@ -138,7 +138,7 @@ function CollapsedTab({ last, onClick }) {
         fontFamily="heading"
         fontSize="md"
         letterSpacing="widest"
-        color="brand.boneWarm"
+        color="brand.amber"
         sx={{ writingMode: 'vertical-rl' }}
         lineHeight={1}
       >
@@ -166,7 +166,7 @@ function CollapsedTab({ last, onClick }) {
       <MotionBox
         as="span"
         display="block"
-        color="brand.boneWarm"
+        color="brand.amber"
         fontSize="16px"
         fontFamily="heading"
         lineHeight={1}
@@ -223,7 +223,7 @@ export function MatchBox({ last, next, variant = 'card' }) {
                 top={'130px'}
                 right={3}
                 zIndex={2}
-                color="brand.boneWarm"
+                color="brand.rec"
                 fontFamily="mono"
                 fontSize="lg"
                 lineHeight={1}
@@ -237,7 +237,7 @@ export function MatchBox({ last, next, variant = 'card' }) {
               <VStack spacing={{ base: 4, md: 6 }} align="stretch">
                 <MatchSlot data={last} label="Último Resultado" labelColor="brand.amber" />
                 <Box h="1px" bg="brand.amberLight" w="80%" alignSelf="center" />
-                <MatchSlot data={next} label="Próximo Partido" labelColor="brand.brown" />
+                <MatchSlot data={next} label="Próximo Partido" labelColor="brand.gray2" />
               </VStack>
             </MotionBox>
           ) : (
@@ -262,9 +262,9 @@ export function MatchBox({ last, next, variant = 'card' }) {
         <Box flex={1} pr={3}>
           <MatchSlot data={last} label="Último Resultado" labelColor="brand.amber" />
         </Box>
-        <Box w="1px" bg="rgba(255,255,255,0.07)" mx={2} />
+        <Box w="1px" bg="brand.amber" mx={2} />
         <Box flex={1} pl={3}>
-          <MatchSlot data={next} label="Próximo Partido" labelColor="brand.brown" />
+          <MatchSlot data={next} label="Próximo Partido" labelColor="brand.gray2" />
         </Box>
       </Flex>
     </Box>

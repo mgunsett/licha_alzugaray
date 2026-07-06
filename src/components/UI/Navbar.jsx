@@ -74,7 +74,7 @@ export default function Navbar() {
         py={{ base: 1.5, lg: 1 }}
         borderRadius={{ base: '18px', lg: '10px' }}
         border="1px solid"
-        borderColor={'brand.gray2'}
+        borderColor={'brand.amber'}
         bg={'brand.dark3'}
         backdropFilter="blur(10px) saturate(140%)"
         boxShadow={scrolled
