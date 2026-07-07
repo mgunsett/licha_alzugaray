@@ -8,15 +8,14 @@ import polaco1 from '@assets/polaco1.png'
 import argentina from '@assets/argentina.webp'
 import universitario from '@assets/escudo_univ.webp'
 //Escudos trayectoria
-import escudoIndependiente from '@assets/escudos/escudo_indmedellin.webp'
+import escudoAtlParana from '@assets/escudos/escudo_atlparana.webp'
 import escudoNewells from '@assets/escudos/escudo_newells.webp'
-import escudoSanlorenzo from '@assets/escudos/escudo_sanlorenzo.webp'
-import escudoBarcelona from '@assets/escudos/escudo_barcelona.webp'
-import escudoPortoviejo from '@assets/escudos/escudo_portoviejo.webp'
-import escudoLugo from '@assets/escudos/escudo_lugo.webp'
-import escudoArgentinos from '@assets/escudos/escudo_argentinos.webp'
-import escudoAntofagasta from '@assets/escudos/escudo_antofagasta.webp'
-import escudoVilladalmine from '@assets/escudos/escudo_villadalmine.webp'
+import escudoAlhali from '@assets/escudos/escudo_alhali.webp'
+import escudoCentralCordoba from '@assets/escudos/escudo_centralcordoba.webp'
+import escudoChaco from '@assets/escudos/escudo_chaco.webp'
+import escudoLigadequito from '@assets/escudos/escudo_ligadequito.webp'
+import escudoSanjose from '@assets/escudos/escudo_sanjose.webp'
+import escudoUcatolica from '@assets/escudos/escudo_ucatolica.webp'
 import escudoAucas from '@assets/escudos/escudo_aucas.webp'
 //Gallery
 import image1 from '@assets/gallery/image1.webp'
@@ -26,6 +25,7 @@ import image4 from '@assets/gallery/image4.webp'
 import image5 from '@assets/gallery/image5.webp'
 import image6 from '@assets/gallery/image6.webp'
 import image7 from '@assets/gallery/image7.webp'
+import image8 from '@assets/gallery/image8.webp'
 //Video
 import photoGraph from '@assets/perfil_video.webp'
 //Prensa
@@ -91,84 +91,76 @@ export const playerData = {
       info:    '',
     },
     {
-      name:    'Independiente Medellín',
-      country: 'Colombia',
-      years:   '2025 — 2026',
-      logo:    escudoIndependiente,
-      titles:  [],
-      info:    'Goleador del Torneo Finalización (12 goles)',
-    },
-    {
-      name:    'San Lorenzo',
-      country: 'Argentina',
-      years:   '2024',
-      logo:    escudoSanlorenzo,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Barcelona SC',
+      name:    'Liga de Quito',
       country: 'Ecuador',
-      years:   '2023 — 2024',
-      logo:    escudoBarcelona,
+      years:   '2023 — 2025',
+      logo:    escudoLigadequito,
+      titles:  ['Serie A Ecuador 2023','Copa Sudamericana 2023', 'Serie A Ecuador 2024', 'Supercopa Ecuador 2024'],
+      info:    '',
+    },
+    {
+      name:    'Al-Hali Saudi',
+      country: 'Arabia Saudita',
+      years:   '2022',
+      logo:    escudoAlhali,
       titles:  [],
       info:    '',
     },
     {
-      name:    'Aucas',
+      name:    'Universidad Católica',
       country: 'Ecuador',
       years:   '2021 — 2022',
-      logo:    escudoAucas,
-      titles:  ['Serie A Ecuador 2022'],
-      info:    ['Goleador del Torneo (15 goles)', 'Goleador de la Copa Colombia (5 goles)'],
+      logo:    escudoUcatolica,
+      titles:  [],
+      info:    '11 ideal de la Serie A de Ecuador 2021',
     },
     {
-      name:    'Liga Portoviejo',
+      name:    'S.D Aucas',
       country: 'Ecuador',
       years:   '2020',
-      logo:    escudoPortoviejo,
+      logo:    escudoAucas,
       titles:  [],
-      info:    'Máximo goleador del Equipo (13 goles)',
+      info:    '',
+    },
+    {
+      name:    'Central Córdoba',
+      country: 'Argentina',
+      years:   '2019',
+      logo:    escudoCentralCordoba,
+      titles:  [],
+      info:    '',
     },
     {
       name:    'Newell\'s Old Boys',
       country: 'Argentina',
-      years:   '2018 — 2019',
+      years:   '2018',
       logo:    escudoNewells,
       titles:  [],
       info:    '',
     },
     {
-      name:    'C.D. Lugo',
-      country: 'España',
-      years:   '2017 — 2018',
-      logo:    escudoLugo,
+      name:    'Chaco For Ever',
+      country: 'Argentina',
+      years:   '2013-2014 / 2017',
+      logo:    escudoChaco,
       titles:  [],
       info:    '',
     },
     {
-      name:    'Argentinos Juniors',
+      name:    'San José',
       country: 'Argentina',
       years:   '2016 — 2017',
-      logo:    escudoArgentinos,
-      titles:  ['Ascenso a Primera División 2016'],
-      info:    ['Préstamo', 'Máximo goleador del Equipo (13 goles)'],
-    },
-    {
-      name:    'Villa Dálmine',
-      country: 'Argentina',
-      years:   '2015',
-      logo:    escudoVilladalmine,
+      logo:    escudoSanjose,
       titles:  [],
       info:    '',
     },
     {
-      name:    'Newell\'s Old Boys',
+      name:    'Atlético Paraná',
       country: 'Argentina',
-      years:   '2014 — 2015',
-      logo:    escudoNewells,
+      years:   '2011-2013 / 2015',
+      logo:    escudoAtlParana,
       titles:  [],
-      info:    'Inferiores y debut en Primera División',
+      info:    '',
     },
   ],
 
@@ -226,8 +218,8 @@ export const playerData = {
       label: 'Instagram',
       icon: FaInstagram,
       iconBg: FaInstagram,
-      handle: '@franciscofydriszewskiok',
-      url: 'https://www.instagram.com/franciscofydriszewskiok/',
+      handle: '@lisandroalzugaray',
+      url: 'https://www.instagram.com/lisandroalzugaray/',
       hoverColor: '#E1306C',
       hoverGradient: 'insta-gradient',
     },
@@ -235,8 +227,8 @@ export const playerData = {
       label: 'TransferMarkt',
       image: transfermkt,
       iconBg: IoMdStats,
-      handle: '@franciscofydriszewski',
-      url: 'https://www.transfermarkt.com.ar/francisco-fydriszewski/profil/spieler/337921',
+      handle: '@lisandro-alzugaray',
+      url: 'https://www.transfermarkt.com.ar/lisandro-alzugaray/profil/spieler/396920',
       hoverColor: 'brand.brownLight',
     },
   ],

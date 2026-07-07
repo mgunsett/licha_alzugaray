@@ -175,7 +175,7 @@ function GalleryCard({ photo, offset, abs, cardW, spacing, total, index, onFocus
           cursor="pointer"
           onClick={(e) => handleLink(e, '#hero')}
           color="brand.amber"
-          _hover={{ color: 'brand.amberLight' }}
+          _hover={{ color: 'brand.amber' }}
           transition="color 0.2s"
         >
           {playerData.initials}
@@ -282,7 +282,7 @@ export default function GallerySection() {
       <Box
         position="absolute" top={{base:'16%',md:"10%"}} left="50%" transform="translateX(-50%)"
         w="70vw" h="40vw" maxW="900px"
-        background="radial-gradient(ellipse, rgba(30,95,168,0.14) 0%, transparent 70%)"
+        background="radial-gradient(ellipse, #bda78e1a 0%, transparent 70%)"
         pointerEvents="none"
       />
 
