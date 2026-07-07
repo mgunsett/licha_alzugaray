@@ -78,7 +78,7 @@ function PressCard({ article, index }) {
         _groupHover={{
           borderColor: 'brand.amber',
           transform: 'translateY(-4px)',
-          bg: 'rgba(194, 58, 58, 0.04)',
+          bg: '#bda78e1a',
           _before: { width: '40px' },
           textDecoration: 'none',
         }}
@@ -93,11 +93,11 @@ function PressCard({ article, index }) {
               borderColor="brand.amber"
               borderRadius="sm"
               transition="border-color 0.35s, background 0.35s"
-              _groupHover={{ borderColor: 'brand.accent', bg: 'brand.dark' }}
+              _groupHover={{ bg: '#bda78e65' }}
               >
                 <Text fontFamily="mono" fontSize="9px" color="brand.amber"
                 textTransform="uppercase" letterSpacing="0.18em"
-                _groupHover={{ color: 'brand.boneWarm'}}
+                _groupHover={{ color: 'brand.bone'}}
                 >
                 {article.media}
               </Text>
@@ -108,7 +108,7 @@ function PressCard({ article, index }) {
             “{article.title}”
           </Text>
 
-          <Text fontFamily="mono" fontSize="11px" color="brand.brownLight"
+          <Text fontFamily="mono" fontSize="11px" color="brand.gray2"
             textTransform="uppercase" letterSpacing="0.18em"
             transition="color 0.25s"
             _groupHover={{ color: 'brand.rec' }}>
@@ -132,7 +132,7 @@ function PressCard({ article, index }) {
           transition="border-color 0.35s, box-shadow 0.35s"
           _groupHover={{
             borderColor: 'brand.brown',
-            boxShadow: '0 0 0 3px rgba(30,95,168,0.16)',
+            boxShadow: '0 0 0 3px #bda78e44',
           }}
         >
           {article.logo ? (
@@ -188,12 +188,12 @@ export default function PressSection() {
         {/* Header */}
         <Flex align="flex-end" justify="space-between" mb={4} ref={titleRef}>
           <Box>
-            <Text fontFamily="mono" fontSize={{base:'12px',md:"10px"}} color="white"
+            <Text fontFamily="mono" fontSize={{base:'12px',md:"10px"}} color="brand.bone"
                   textTransform="uppercase" letterSpacing="widest">
               Testimonios
             </Text>
             <Text as="h2" fontFamily="heading" fontSize={{ base: '5xl', lg: '6xl' }}
-                  color="brand.amberLight" lineHeight={1}>
+                  color="brand.amber" lineHeight={1}>
               Prensa
             </Text>
           </Box>

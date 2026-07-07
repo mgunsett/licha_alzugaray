@@ -179,7 +179,7 @@ function GalleryCard({ photo, offset, abs, cardW, spacing, total, index, onFocus
           transition="color 0.2s"
         >
           {playerData.initials}
-          <Box as="span" color="brand.boneWarm">_</Box>
+          <Box as="span" color="brand.gray2">_</Box>
         </Text>
         </Box>
 
@@ -289,12 +289,12 @@ export default function GallerySection() {
       <Box maxW="1400px" mx="auto" px={{ base: 5, lg: 10 }} position="relative">
         <Flex align="flex-end" justify="space-between" mb={{ base: 8, md: 10 }} ref={titleRef}>
           <Box>
-            <Text fontFamily="mono" fontSize="10px" color="white"
+            <Text fontFamily="mono" fontSize="10px" color="brand.bone"
                   textTransform="uppercase" letterSpacing="widest">
               Fotos
             </Text>
             <Text as="h2" fontFamily="heading" fontSize={{ base: '5xl', lg: '6xl' }}
-                  color="brand.amberLight" lineHeight={1}>
+                  color="brand.amber" lineHeight={1}>
               Galería
             </Text>
           </Box>
@@ -368,9 +368,9 @@ export default function GallerySection() {
             as="button" onClick={prev} aria-label="Anterior"
             boxSize="44px" flexShrink={0}
             display="flex" alignItems="center" justifyContent="center"
-            border="1px solid" borderColor="brand.amberLight" borderRadius="full"
-            color="brand.brownLight" transition="all 0.25s" 
-            _hover={{ bg: 'brand.rec', borderColor: 'brand.amberLight  ', color: 'white' }}
+            border="1px solid" borderColor="brand.amber" borderRadius="full"
+            color="brand.bone" transition="all 0.25s" 
+            _hover={{ bg: '#bda78e1a', color: 'brand.gray2' }}
             _active={{ transform: 'scale(0.92)' }}
           >
             <Text fontFamily="heading" fontSize="4xl" lineHeight={1} pt="2px">‹</Text>
@@ -411,9 +411,9 @@ export default function GallerySection() {
             as="button" onClick={next} aria-label="Siguiente"
             boxSize="44px" flexShrink={0}
             display="flex" alignItems="center" justifyContent="center"
-            border="1px solid" borderColor="brand.amberLight" borderRadius="full"
-            color="brand.brownLight" transition="all 0.25s"
-            _hover={{ bg: 'brand.rec', borderColor: 'brand.amberLight', color: 'white' }}
+            border="1px solid" borderColor="brand.amber" borderRadius="full"
+            color="brand.bone" transition="all 0.25s"
+            _hover={{ bg: '#bda78e1a', color: 'brand.gray2' }}
             _active={{ transform: 'scale(0.92)' }}
           >
             <Text fontFamily="heading" fontSize="4xl" lineHeight={1} pt="2px">›</Text>

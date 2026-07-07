@@ -133,7 +133,7 @@ export default function VideosSection() {
         right="-12%"
         w="45vw"
         h="45vw"
-        background="radial-gradient(ellipse, #9131311e 0%, transparent 70%)"
+        background="radial-gradient(ellipse, #bda78e1a 0%, transparent 70%)"
         pointerEvents="none"
       />
 
@@ -142,16 +142,16 @@ export default function VideosSection() {
         ref={ghostRef}
         aria-hidden
         position="absolute"
-        top={{ base: '10%', md: '12%' }}
-        right={{ base: '-6%', md: '2%' }}
+        top={{ base: '10%', md: '7%' }}
+        right={{ base: '-6%', md: '0%' }}
         fontFamily="heading"
-        fontSize={{ base: '60vw', md: '40vw' }}
+        fontSize={{ base: '60vw', md: '35vw' }}
         lineHeight={0.8}
         color="transparent"
         pointerEvents="none"
         userSelect="none"
         zIndex={0}
-        sx={{ WebkitTextStroke: `1.5px #4d94d650` }}
+        sx={{ WebkitTextStroke: `1.5px #bda78e1a` }}
       >
         {playerData.number}
       </Text> 
@@ -160,12 +160,12 @@ export default function VideosSection() {
 
         {/* ── Header ── */}
         <Flex direction={'column'} align="flex-start" justify="flex-start" ref={headerRef} mb={{ base: 8, md: 10 }} ml={{base:0 , md:'-30px', lg:'-90px'}}>
-           <Text fontFamily="mono" fontSize="10px" color="white"
+           <Text fontFamily="mono" fontSize="10px" color="brand.bone" 
               textTransform="uppercase" letterSpacing="widest">
               HIGHLIGHTS
             </Text>
             <Text as="h2" fontFamily="heading" fontSize={{ base: '5xl', lg: '6xl' }}
-              color="brand.amberLight" lineHeight={1}>
+              color="brand.amber" lineHeight={1}>
               Videos
             </Text>
         </Flex>
@@ -189,7 +189,7 @@ export default function VideosSection() {
               fontSize="11px"
               letterSpacing="0.4em"
               textTransform="uppercase"
-              color="brand.boneWarm"
+              color="brand.gray2"
               sx={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
             >
               {video.season} — {playerData.name} {playerData.fullName}
@@ -218,7 +218,7 @@ export default function VideosSection() {
               <Box
                 position="relative"
                 overflow="hidden"
-                bg="brand.night"
+                bg="brand.dark"
                 boxShadow="inset 0 0 0 1px rgba(255,255,255,0.08)"
                 sx={{ clipPath: NOTCH }}
               >
@@ -304,13 +304,13 @@ export default function VideosSection() {
                   bg="rgba(5,11,20,0.55)"
                   backdropFilter="blur(6px)"
                   border="1px solid"
-                  borderColor="rgba(30,95,168,0.55)"
+                  borderColor="brand.amber"
                   px={3}
                   py="6px"
                   zIndex={4}
                 >
                   <Box w="7px" h="7px" borderRadius="full" bg="brand.rec" animation={`${blink} 1.6s ease-in-out infinite`} />
-                  <Text fontFamily="mono" fontSize="10px" letterSpacing="0.26em" textTransform="uppercase" color="white">
+                  <Text fontFamily="mono" fontSize="10px" letterSpacing="0.26em" textTransform="uppercase" color="brand.bone">
                     {video.category}
                   </Text>
                 </Flex>
@@ -324,7 +324,7 @@ export default function VideosSection() {
                     transition="transform 0.45s cubic-bezier(0.22,1,0.36,1)"
                     transform={hovered ? 'scale(1.12)' : 'scale(1)'}
                   >
-                    <Box position="absolute" inset={0} borderRadius="full" border="1px solid" borderColor="brand.brown" animation={`${pulse} 2.8s ease-out infinite`} />
+                    <Box position="absolute" inset={0} borderRadius="full" border="1px solid" borderColor="brand.amber" animation={`${pulse} 2.8s ease-out infinite`} />
                     <Box position="absolute" inset={0} borderRadius="full" border="1px solid" borderColor="brand.brown" animation={`${pulse} 2.8s ease-out infinite 1.4s`} />
                     <Box
                       position="absolute"
@@ -334,7 +334,7 @@ export default function VideosSection() {
                       transition="opacity 0.4s ease"
                       sx={{
                         background:
-                          'conic-gradient(from 0deg, transparent 0deg, rgba(77,147,214,0.95) 80deg, rgba(30,95,168,1) 150deg, transparent 220deg, transparent 360deg)',
+                          'conic-gradient(from 0deg, transparent 0deg, #bda78e88 80deg, #bda78e1a 150deg, transparent 220deg, transparent 360deg)',
                         WebkitMask: 'radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px))',
                         mask: 'radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px))',
                       }}
@@ -348,12 +348,12 @@ export default function VideosSection() {
                       justify="center"
                       borderRadius="full"
                       border="1px solid"
-                      borderColor="whiteAlpha.700"
+                      borderColor="brand.amber"
                       bg="rgba(5,11,20,0.4)"
                       backdropFilter="blur(10px)"
                       transition="all 0.4s ease"
-                      boxShadow={hovered ? '0 0 36px rgba(30,95,168,0.6)' : 'none'}
-                      _groupHover={{ bg: 'rgba(30,95,168,0.5)', borderColor: 'white' }}
+                      boxShadow={hovered ? '0 0 36px #bda78e49' : 'none'}
+                      _groupHover={{ bg: '#bda78e98', borderColor: 'white' }}
                     >
                       <Box as={FiPlay} fontSize={{ base: '26px', md: '38px' }} ml="4px" color="white" />
                     </Flex>

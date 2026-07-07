@@ -15,8 +15,8 @@ const R = 100 // ← tamaño del polígono (radio). Subilo/bajalo para agrandar 
 function RadarChart({ stats }) {
   const wrapRef = useRef(null)
   const N = stats.length
-  const [accent, brownLight, gray, amber2] = useToken('colors', [
-    'brand.accent', 'brand.brownLight', 'brand.gray', 'brand.amber2'
+  const [amberLight, brownLight, gray2, amber, amber2, gray, bone] = useToken('colors', [
+    'brand.amberLight', 'brand.brownLight', 'brand.gray2', 'brand.amber','brand.amber2','brand.gray','brand.bone'
   ])
 
   // Punto (x,y) para un valor 0-100 en el eje i
@@ -92,21 +92,21 @@ function RadarChart({ stats }) {
       >
         {gridRings.map((pts, i) => (
           <polygon key={i} points={pts} fill="none"
-            stroke={i === 3 ? amber2 : '#993f3f17'} strokeWidth={i === 3 ? '1.5' : '1'}
+            stroke={i === 3 ? amber : '#993f3f17'} strokeWidth={i === 3 ? '1.5' : '1'}
           />
         ))}
         {stats.map((_, i) => {
           const [x, y] = pointFor(100, i)
           return <line key={i} x1={CX} y1={CY} x2={x} y2={y}
-            stroke="#993f3f17" />
+            stroke={amberLight} />
         })}
         <polygon
           className="radar-value"
           points={valuePoints.map(p => p.join(',')).join(' ')}
-          fill={`${accent}4D`} stroke={brownLight} strokeWidth="1.5"
+          fill={`${gray2}4D`} stroke={amber2} strokeWidth="1.5"
         />
         {valuePoints.map(([x, y], i) => (
-          <circle key={i} className="radar-dot" cx={x} cy={y} r="2.8" fill={brownLight} />
+          <circle key={i} className="radar-dot" cx={x} cy={y} r="2.8" fill={amber2} />
         ))}
         {labels.map(l => (
           <text key={l.label} className="radar-label"
@@ -115,7 +115,7 @@ function RadarChart({ stats }) {
             fontSize="16" letterSpacing="0.8" fill={gray}
             style={{ textTransform: 'uppercase' }}
           >
-            {l.label} <tspan fill={brownLight} fontWeight="700">{l.value}</tspan>
+            {l.label} <tspan fill={bone} fontWeight="700">{l.value}</tspan>
           </text>
         ))}
       </Box>
@@ -152,8 +152,8 @@ function OverallRating({ value }) {
     <Box textAlign="center" mt={6}>
       <Text ref={numRef}
         fontFamily="heading"
-        fontSize={{ base: '46px', md: '56px' }}
-        color="brand.brownLight" lineHeight="1"
+        fontSize={{ base: '46px', md: '70px' }}
+        color="brand.gray2" lineHeight="1"
       >
         {value}
       </Text>
@@ -161,9 +161,9 @@ function OverallRating({ value }) {
         fontFamily="mono"
         fontSize="10px" fontWeight="700"
         letterSpacing="0.3em" textTransform="uppercase"
-        color="brand.amber"
+        color="brand.bone"
       >
-        Valoración General
+        Valoración
       </Text>
     </Box>
   )
@@ -223,7 +223,7 @@ function ProfileColumn({ items }) {
           gap={4}
           py={{ base: 2.5, lg: 2.5 }}
           borderBottom={i === items.length - 1 ? 'none' : '1px solid'}
-          borderColor="brand.amber2"
+          borderColor="brand.dark2"
           transition="border-color 0.3s"
           _hover={{ borderColor: 'brand.amber' }}
         >
@@ -239,7 +239,7 @@ function ProfileColumn({ items }) {
           <Text
             fontFamily="mono"
             fontSize={{ base: 'sm', lg: '15px' }} fontWeight="600"
-            color="brand.boneWarm"
+            color="brand.bone"
             textAlign="right"
             noOfLines={1}
             minW={0}
@@ -265,7 +265,7 @@ function SeasonColumn({ items }) {
           key={item.label}
           className="radar-side-row"
           border="1px solid"
-          borderColor="brand.amber2"
+          borderColor="brand.amber"
           borderRadius="10px"
           p={{ base: 3, lg: 3.5 }}
           bg="brand.dark"
@@ -273,14 +273,14 @@ function SeasonColumn({ items }) {
           role="group"
           _hover={{
             borderColor: 'brand.amber',
-            bg: 'rgba(194, 58, 58, 0.04)',
+            bg: '#bda78e1a',
             transform: 'translateY(-2px)',
           }}
         >
           <Text
             fontFamily="heading"
             fontSize={{ base: '28px', lg: '34px' }}
-            color="brand.brownLight"
+            color="brand.gray2"
             lineHeight="1"
           >
             {item.value}
@@ -289,10 +289,9 @@ function SeasonColumn({ items }) {
             fontFamily="mono"
             fontSize="9px" fontWeight="700"
             letterSpacing="0.1em" textTransform="uppercase"
-            color="brand.gray"
+            color="brand.bone"
             mt={1.5}
             lineHeight="1.2"
-            _groupHover={{ color: 'brand.rec' }}
           >
             {item.label}
           </Text>

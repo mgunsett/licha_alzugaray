@@ -6,7 +6,7 @@ import { IoMdStats } from 'react-icons/io'
 import polaco1 from '@assets/polaco1.png'
 
 import argentina from '@assets/argentina.webp'
-import junior from '@assets/junior.webp'
+import universitario from '@assets/escudo_univ.webp'
 //Escudos trayectoria
 import escudoIndependiente from '@assets/escudos/escudo_indmedellin.webp'
 import escudoNewells from '@assets/escudos/escudo_newells.webp'
@@ -58,7 +58,7 @@ export const playerData = {
   birthDate: '17 / 04 / 1990',
   birthPlace: 'Viale, Argentina',
   currentClub: 'Universitario',
-  logoCurrentClub: junior,
+  logoCurrentClub: universitario,
   image: polaco1,
   
 
@@ -83,10 +83,10 @@ export const playerData = {
 
   clubs: [
     {
-      name:    'Junior de Barranquilla',
-      country: 'Colombia',
+      name:    'Universitario',
+      country: 'Perú',
       years:   '2026 — Actualidad',
-      logo:    junior,
+      logo:    universitario,
       titles:  [],
       info:    '',
     },

@@ -8,7 +8,7 @@ const brand = {
   amber:      '#bda78e', // detalle rojizo/dorado
   amber2:     '#993f3f8e',
   amberDark:  '#7A1F1F', // detalle rojizo/dorado oscuro
-  amberLight: '#695947', // detalle rojizo/dorado claro
+  amberLight: '#bda78e4f', // detalle rojizo/dorado claro
   dorado:     '#c0ab32', // dorado
   orange:     '#a36b2c', // naranja (hover de botones)
   orangeDark: '#7a4e1f', // naranja oscuro (hover de botones)

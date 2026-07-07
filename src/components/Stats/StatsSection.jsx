@@ -260,7 +260,7 @@ function ClubNode({ club, isFirst, isLast, isActive }) {
           left={isFirst ? '50%' : 0}
           right={isLast ? '50%' : 0}
           h="1px"
-          bg="brand.amberLight"
+          bg="brand.amber"
           transform="translateY(-50%)"
         />
         {/* Tramo recorrido (resaltado hacia el club actual) */}
@@ -284,15 +284,15 @@ function ClubNode({ club, isFirst, isLast, isActive }) {
           justify="center"
           position="relative"
           zIndex={1}
-          bg="brand.dark"
+          bg="brand.brown"
           border="1px solid"
-          borderColor={isActive ? 'brand.amber' : 'brand.amber2'}
-          boxShadow={isActive ? '0 0 0 4px #c23a3a7a, 0 0 26px #c23a3aa8' : 'none'}
+          borderColor={'brand.amber'}
+          boxShadow={isActive ? '0 0 0 4px #bda78e, 0 0 26px #bda78e79' : 'none'}
           transition="border-color 0.35s, box-shadow 0.35s, transform 0.35s"
           _groupHover={{
             borderColor: 'brand.amberLight',
             transform: 'translateY(-4px)',
-            boxShadow: '0 0 0 4px #c23a3a4d, 0 0 26px #c23a3aa8',
+            boxShadow: '0 0 0 4px #bda78e9a, 0 0 26px #bda78e79',
           }}
         >
           <Image
@@ -316,7 +316,7 @@ function ClubNode({ club, isFirst, isLast, isActive }) {
         pb={8}
         bg="brand.dark"
         border="1px solid"
-        borderColor="brand.amber2"
+        borderColor="brand.amber"
         borderRadius="lg"
         textAlign="center"
         position="relative"
@@ -327,10 +327,9 @@ function ClubNode({ club, isFirst, isLast, isActive }) {
           w: isActive ? '40px' : '0', h: '2px', bg: 'brand.amber', borderRadius: 'full',
           transition: 'width 0.35s',
         }}
-        _groupHover={{
-          borderColor: 'brand.amberLight',
+        _groupHover={{  
           transform: 'translateY(-4px)',
-          bg: 'rgba(194, 58, 58, 0.04)',
+          bg: '#bda78e1a',
           _before: { width: '40px' },
         }}
       >
@@ -344,7 +343,7 @@ function ClubNode({ club, isFirst, isLast, isActive }) {
         >
           {club.years}
         </Text>
-        <Text fontFamily="heading" fontSize="xl" color="brand.boneWarm" lineHeight={1.05} mt={1}>
+        <Text fontFamily="heading" fontSize="xl" color="brand.bone" lineHeight={1.05} mt={1}>
           {club.name}
         </Text>
         <Text
@@ -432,10 +431,10 @@ function ClubTimeline() {
     justifyContent: 'center',
     borderRadius: 'full',
     border: '1px solid',
-    borderColor: 'brand.boneWarm',
-    color: 'brand.boneWarm',
+    borderColor: 'brand.amber',
+    color: 'brand.bone',
     transition: 'all 0.25s',
-    _hover: { borderColor: 'brand.amberLight', color: 'white', bg: 'rgba(30,95,168,0.12)' },
+    _hover: { bg: '#bda78e1a', color: 'brand.gray2' },
     _active: { transform: 'scale(0.92)' },
   }
 
@@ -443,12 +442,12 @@ function ClubTimeline() {
     <Box mt={16}>
       <Flex align="flex-end" justify="space-between" mb={7}>
         <Box>
-          <Text fontFamily="mono" fontSize="10px" color="white"
+          <Text fontFamily="mono" fontSize="10px" color="brand.bone"
                   textTransform="uppercase" letterSpacing="widest">
             Trayectoria
           </Text>
           <Text as="h2" fontFamily="heading" fontSize={{ base: '5xl', lg: '6xl' }}
-                  color="brand.amberLight" lineHeight={1}>
+                  color="brand.amber" lineHeight={1}>
             Clubes
           </Text>
         </Box>
@@ -525,12 +524,12 @@ export default function StatsSection() {
         {/* Header */}
         <Flex align="flex-end" justify="space-between" mb={10}>
           <Box ref={titleRef}>
-            <Text fontFamily="mono" fontSize="10px" color="white"
+            <Text fontFamily="mono" fontSize="10px" color="brand.bone"
                   textTransform="uppercase" letterSpacing="widest" >
               Temporada 2025 / 2026
             </Text>
             <Text as="h2" fontFamily="heading" fontSize={{ base: '5xl', lg: '6xl' }}
-                  color="brand.amberLight" lineHeight={1}>
+                  color="brand.amber" lineHeight={1}>
               Estadísticas
             </Text>
           </Box>
