@@ -434,7 +434,7 @@ function ClubTimeline() {
     borderColor: 'brand.amber',
     color: 'brand.bone',
     transition: 'all 0.25s',
-    _hover: { bg: '#bda78e1a', color: 'brand.gray2' },
+    _hover: { bg: 'brand.bgRef', color: 'brand.gray2' },
     _active: { transform: 'scale(0.92)' },
   }
 

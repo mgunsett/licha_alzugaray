@@ -18,7 +18,7 @@ function SocialCard({ item }) {
       overflow="hidden"
       bg="brand.dark"
       border="1px solid"
-      borderColor="brand.amber2"
+      borderColor="brand.amber"
       borderRadius={'10px'}
       p={{ base: 6, md: 8 }}
       transition="all 0.3s ease"
@@ -26,7 +26,7 @@ function SocialCard({ item }) {
       _hover={{
         transform: 'translateY(-3px)',
           borderColor: 'brand.amber',
-          bg: 'rgba(194, 58, 58, 0.04)'
+          bg: 'brand.bgRef',
       }}
     >
       {/* watermark gigante */}
@@ -76,11 +76,12 @@ function SocialCard({ item }) {
           textTransform="uppercase"
           color="brand.gray"
           mb={1}
-          _groupHover={{ color: 'brand.rec' }}
+          _groupHover={{ color: 'brand.bone' }}
         >
           {item.label}
         </Text>
-        <Text fontFamily="heading" color={'brand.brownLight'} fontSize={{base:'xl',md:"2xl"}}>
+        <Text fontFamily="heading" color={'brand.bone'} fontSize={{base:'xl',md:"2xl"}} _groupHover={{ color: 'brand.gray2' }}>
+
           {item.handle}
         </Text>
       </Box>
@@ -99,9 +100,9 @@ function ContactRow({ item, gold }) {
       display="block"
       bg="rgba(255,255,255,0.02)"
       border="1px solid"
-      borderColor={gold ? 'brand.orangeLight' : 'brand.brownLight'}
+      borderColor={gold ? 'brand.orangeLight' : 'brand.amber'}
       borderRadius='10px'
-      borderLeftColor= {gold ? 'brand.orangeLight' : 'brand.accent'}
+      borderLeftColor= {gold ? 'brand.orangeLight' : 'brand.amber'}
       borderLeftWidth= '4px'
       borderLeftStyle= 'solid'
       p={{ base: 5, md: 8 }}
@@ -109,8 +110,8 @@ function ContactRow({ item, gold }) {
       role="group"
       _hover={{
         transform: 'translateY(-3px)',
-        borderColor: gold ? 'brand.orangeLight' : 'brand.accent',
-        bg: gold ? 'rgba(163,107,44,0.04)' : 'rgba(30,95,168,0.04)',
+        borderColor: gold ? 'brand.orangeLight' : 'brand.amber',
+        bg: gold ? 'rgba(163,107,44,0.04)' : 'brand.bgRef',
       }}
     >
       <Flex align="center" gap={4}>
@@ -147,11 +148,17 @@ function ContactRow({ item, gold }) {
             letterSpacing="0.24em"
             textTransform="uppercase"
             color="brand.gray"
-            _groupHover={{ color: 'brand.rec' }}
+            _groupHover={{ color: 'brand.bone' }}
           >
             {item.label}
           </Text>
-          <Text fontFamily="heading" fontSize="2xl" color="brand.brownLight" fontWeight={500}>
+          <Text 
+          fontFamily="heading" 
+          fontSize="2xl" 
+          color="brand.bone" 
+          fontWeight={500} 
+          _groupHover={{ color: gold ? 'brand.orangeLight' : 'brand.gray2' }}
+          >
             {item.handle}
           </Text>
         </Box>
@@ -201,12 +208,12 @@ export function ContactSection() {
       <Box position="relative" zIndex={1} maxW="1400px" mx="auto">
         {/* Header */}
         <Box ref={headerRef} mb={{ base: 8, md: 10 }}>
-          <Text fontFamily="mono" fontSize="10px" color="white"
+          <Text fontFamily="mono" fontSize="10px" color="brand.bone" letterSpacing="0.28em"
                   textTransform="uppercase" letterSpacing="widest">
             #Redes
           </Text>
           <Text as="h2" fontFamily="heading" fontSize={{ base: '5xl', lg: '6xl' }}
-                  color="brand.amberLight" lineHeight={1}>
+                  color="brand.amber" lineHeight={1}>
             Contacto
           </Text>
         </Box>

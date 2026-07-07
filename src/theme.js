@@ -20,15 +20,8 @@ const brand = {
   gray2:      '#884545',
   bone:       '#FFFFFF', // blanco (texto principal)
   boneWarm:   '#3083e2', // blanco azulado (detalles)
-  accent:     '#1E5FA8', // azul de acento (glows, scrollbar, gradientes)
-  accentMid:  '#1460B1', // azul medio (gradiente de barras)
-  accentDeep: '#0B478B', // azul profundo (gradiente de barras)
-  darker:     '#050810', // fondo del footer (más oscuro que dark)
-  panel:      '#070F1A', // fondo de tarjetas / paneles
-  night:      '#03060A', // casi negro (marco de video)
-  deep:       '#080C12', // fondo de la sección de contacto
   rec:        '#E5484D', // rojo del indicador REC
-  rose:       '#EC8496', // rosa del hover de cerrar en el lightbox
+  bgRef:      '#bda78e1a'// bg de hover en cajas
 }
 
 // Colores de la firma del desarrollador (crédito en el footer)

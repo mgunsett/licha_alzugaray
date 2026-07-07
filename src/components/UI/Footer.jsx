@@ -39,12 +39,12 @@ export default function Footer() {
     <Box
       ref={ref}
       as="footer"
-      bg="brand.dark2"
+      bg="brand.brown"
       py={16}
       px={{ base: 6, md: 12, lg: 20 }}
        sx={{
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%)',
+          maskImage: 'linear-gradient(to bottom, #2324249f 0%, black 12%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, #2324249f   0%, black 12%)',
         }}
     >
       <Flex
@@ -52,7 +52,7 @@ export default function Footer() {
         align="center"
         justify="space-between"
         flexWrap="wrap"
-        gap={4}
+        gap={{ base: 8, md: 4 }}
       >
         <Box
           as="a"
@@ -61,12 +61,12 @@ export default function Footer() {
         >
           <Text
             fontFamily="heading"
-            fontSize="36px"
+            fontSize={{ base: '46px', md: '36px' }}
             letterSpacing="0.08em"
             color="brand.amber"
           >
             {playerData.initials}
-            <Box as="span" color="brand.boneWarm" ml="1px">_</Box>
+            <Box as="span" color="brand.gray2" ml="1px">_</Box>
           </Text>
         </Box>
 
@@ -75,13 +75,13 @@ export default function Footer() {
           fontSize="12px"
           letterSpacing="0.12em"
           textTransform="uppercase"
-          color="brand.gray2"
+          color="brand.bone"
           textAlign="center"
         >
           © 2026 {playerData.displayName} · Todos los derechos reservados
         </Text>
 
-        <Text fontSize="12px" color="brand.gray2" letterSpacing="0.05em">
+        <Text fontSize="12px" color="brand.bone" letterSpacing="0.05em">
             Desarrollo Web -{' '}
             <Link
             href="https://matiasgunsett.netlify.app/"

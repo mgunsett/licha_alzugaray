@@ -46,14 +46,14 @@ function PlayerPanel() {
             {playerData.position}
           </Text>
         </Flex>
-        <Flex justifyContent='flex-start' alignItems='center' gap={{base:'8px',md:'12px'}}>
+        <Flex justifyContent='flex-start' alignItems='center' gap={{base:'10px',md:'12px'}}>
           <Image src={playerData.nationalityFlag} w={{ base: '15px', md: '20px' }} />
           <Text mb={'-5px'} fontFamily="mono" fontSize={{base:'xs',md:"md"}} color="brand.amber" letterSpacing="wider">
             {playerData.nationality}
           </Text>
         </Flex>
         <Flex justifyContent='flex-start' alignItems={'flex-end'} gap={{base:'8px',md:'10px'}} spacing={1} mt={'3px'} ml={-1}>
-          <Image src={playerData.logoCurrentClub} ml={{base:'2px',md:'none'}} w={{ base: '16px', md: '28px' }} h={{base:'20px',md:'30px'}} />
+          <Image src={playerData.logoCurrentClub} ml={{base:'2px',md:'none'}} w={{ base: '20px', md: '28px' }} h={{base:'20px',md:'30px'}} />
           <Text fontFamily="mono" fontSize={{base:'xs',md:"md"}} color="brand.amber" letterSpacing="wider">
             {playerData.currentClub}
           </Text>
@@ -130,8 +130,8 @@ export default function Hero() {
           display="flex"
           justifyContent="center"
           alignItems={{ base: 'flex-end', md: 'flex-start' }}
-          mt={{ base: 60, md: 12 }}
-          ml={{ base: '0', md: '4%' }}
+          mt={{ base: 10, md: 12 }}
+          ml={{ base: '0%', md: '4%' }}
           sx={{
             maskImage:
               'radial-gradient(120% 90% at 50% 30%, black 35%, transparent 78%)',
@@ -145,10 +145,10 @@ export default function Hero() {
             aria-hidden="true"
             draggable={false}
             // Controlá el tamaño acá 👇
-            w={{ base: '100%', md: '62vw' }}
-            h={{ base: '100%', md: 'auto' }}
-            objectFit={{ base: 'contain', md: 'contain' }}
-            objectPosition="center top"
+            w={{ base: '100vw', md: '62vw' }}
+            h={{ base: '100vh', md: 'auto' }}
+            objectFit={{ base: 'cover', md: 'contain' }}
+            objectPosition={{ base: 'center', md: 'center top' }}
             opacity={{ base: 0.21, lg: 0.20 }}
             filter="grayscale(100%) contrast(1.05)"
             sx={{ mixBlendMode: 'luminosity' }}
@@ -160,7 +160,7 @@ export default function Hero() {
           position="absolute"
           inset={0}
           zIndex={{base: 3, md: 5,  lg:9}}
-          pl={{ base: '20%', lg: '10%' }}
+          pl={{ base: '27%', lg: '10%' }}
           pt={{ base: '24%', lg: '5%' }}
           display="flex"
           justifyContent={{ base: 'flex-start', lg: 'flex-start' }}
@@ -169,14 +169,7 @@ export default function Hero() {
         >
           <Box
             ref={photoRef}
-            h={{ base: '78vh', lg: '90vh' }}
-            // sx={{
-            //   // dvh evita el salto al colapsar la barra del navegador en mobile; vh queda de fallback
-            //   '@supports (height: 100dvh)': {
-            //     height: '78dvh',
-            //     '@media (min-width: 62em)': { height: '94dvh' },
-            //   },
-            // }}
+            h={{ base: '78vh', lg: '90vh' }}                               
             style={{ clipPath: 'inset(100% 0 0 0)', opacity: 0 }}
           >
             <Image
@@ -203,7 +196,7 @@ export default function Hero() {
           alignItems='center'
           justifyContent={{ base: 'flex-start', md: 'center' }}
           pl={{ base: 0, lg: '15%' }}
-          pt={{ base: '12%', lg: '0%' }}
+          pt={{ base: '22%', lg: '0%' }}
           mt={{ base: '0', lg: '-4%' }}
         >
           <Flex 
@@ -216,7 +209,7 @@ export default function Hero() {
               as="span"
               display="block"
               fontFamily="heading"
-              fontSize={{ base: '22vw', md: '16vw', lg: '13vw' }}
+              fontSize={{ base: '28vw', md: '16vw', lg: '13vw' }}
               color="brand.amber"
               lineHeight={0.9}
               style={{ opacity: 0 }}
@@ -243,8 +236,9 @@ export default function Hero() {
 
         {/* Player info — bottom left */}
         <Box
+          className="player-info"
           position="absolute"
-          bottom={{ base: '42%', lg: '22%' }}
+          bottom={{ base: '37%', lg: '22%' }}
           left={{ base: '5%', lg: '35%' }}
           zIndex={15}
         >

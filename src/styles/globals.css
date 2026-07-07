@@ -30,10 +30,13 @@
 
 @media screen and (max-width: 408px){
   .player-photo { 
-    width: 320px !important;
+    width: 255px !important;
     max-width: none !important;
   }
   .player-number {
-    font-size: 100px !important;
+    font-size: 110px !important;
+  }
+  .player-info {
+    bottom: 42% !important;
   }
 }

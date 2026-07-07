@@ -33,7 +33,7 @@ function Stars({ count = 5 }) {
 
 function PressCard({ article, index }) {
   const cardRef = useRef(null)
-  const [panel, brownDark, accent, amberLight] = useToken('colors', ['brand.panel', 'brand.brownDark', 'brand.accent', 'brand.amberLight'])
+  const [panel, brownDark, amber, amberLight] = useToken('colors', ['brand.panel', 'brand.brownDark', 'brand.amber', 'brand.amberLight'])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -73,7 +73,7 @@ function PressCard({ article, index }) {
           borderRight: '10px solid transparent',
           borderTop: `10px solid ${amberLight}`,
           filter: 'drop-shadow(0 1px 0 rgba(255,255,255,0.06))',
-          _groupHover: { borderTopColor: accent },
+          _groupHover: { borderTopColor: amber },
         }}
         _groupHover={{
           borderColor: 'brand.amber',
@@ -126,7 +126,7 @@ function PressCard({ article, index }) {
           overflow="hidden"
           align="center"
           justify="center"
-          bg={`linear-gradient(135deg, ${brownDark}, ${accent})`}
+          bg={`linear-gradient(135deg, ${brownDark}, ${amber})`}
           border="1px solid"
           borderColor="brand.amber"
           transition="border-color 0.35s, box-shadow 0.35s"
