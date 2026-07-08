@@ -225,7 +225,7 @@ export function ContactSection() {
             fontSize="11px"
             letterSpacing="0.28em"
             textTransform="uppercase"
-            color="brand.boneWarm"
+            color="brand.amber"
             mb={5}
           >
             Redes sociales
@@ -256,7 +256,7 @@ export function ContactSection() {
                 fontSize="11px"
                 letterSpacing="0.28em"
                 textTransform="uppercase"
-                color="brand.boneWarm"
+                color="brand.amber"
                 mb={5}
           >
             Representante Deportivo
@@ -275,7 +275,7 @@ export function ContactSection() {
                 fontSize="11px"
                 letterSpacing="0.28em"
                 textTransform="uppercase"
-                color="brand.boneWarm"
+                color="brand.orangeLight"
                 mb={5}
           >
             Representante de marketing
