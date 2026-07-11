@@ -115,7 +115,7 @@ function RadarChart({ stats }) {
             fontSize="16" letterSpacing="0.8" fill={gray}
             style={{ textTransform: 'uppercase' }}
           >
-            {l.label} <tspan fill={bone} fontWeight="700">{l.value}</tspan>
+            {l.label} <tspan fill={bone} fontWeight="700">{l.value} %</tspan>
           </text>
         ))}
       </Box>

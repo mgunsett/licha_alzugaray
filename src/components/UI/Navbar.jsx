@@ -93,7 +93,7 @@ export default function Navbar() {
           _hover={{ color: 'brand.brown' }}
           transition="color 0.2s"
         >
-          {playerData.initials}<Box as="span" color="brand.boneWarm">_</Box>
+          {playerData.initials}<Box as="span" color="brand.gray2">_</Box>
         </Text>
 
         {/* Desktop links */}

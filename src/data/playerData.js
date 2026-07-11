@@ -3,7 +3,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { IoMdStats } from 'react-icons/io'
 
 //Hero
-import polaco1 from '@assets/polaco1.png'
+import polaco1 from '@assets/polaco1.webp'
 
 import argentina from '@assets/argentina.webp'
 import universitario from '@assets/escudo_univ.webp'
@@ -52,9 +52,9 @@ export const playerData = {
   nationality: 'Argentina',
   nationalityFlag: argentina,
   age: 36,
-  height: '1.70m',
+  height: '1.76m',
   weight: '70kg',
-  foot: 'Izquierdo',
+  foot: 'Derecho',
   birthDate: '17 / 04 / 1990',
   birthPlace: 'Viale, Argentina',
   currentClub: 'Universitario',
@@ -66,17 +66,17 @@ export const playerData = {
     { label: 'Velocidad',      value: 91 },
     { label: 'Definición',     value: 88 },
     { label: 'Regate',         value: 84 },
-    { label: 'Juego Aéreo',    value: 75 },
+    { label: 'Pases Completos',    value: 79 },
     { label: 'Presión Alta',   value: 82 },
     { label: 'Visión de Juego',value: 79 },
   ],
 
   seasonStats: [
-    { label: 'Partidos',    value: 19 },
+    { label: 'Partidos',    value: 16 },
     { label: 'Goles',       value: 3 },
-    { label: 'Asistencias', value: 2  },
-    { label: 'Tiros al árco', value: 28  },
-    { label: 'Min / Part.', value: "1,470'" },
+    { label: 'Asistencias', value: 1  },
+    { label: 'Tiros al árco', value: 8  },
+    { label: 'Min / Part.', value: "1,022'" },
     { label: 'Valoración', value: 7.4  },
 
   ],

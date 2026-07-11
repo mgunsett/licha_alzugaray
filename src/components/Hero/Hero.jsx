@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MatchBox from './MatchBox'
 import { playerData } from '../../data/playerData'
 import useMatches from '../../hooks/useMatches'
-import heroBg from '@assets/polaco3.png'
+import heroBg from '@assets/polaco3.webp'
 import '../../styles/globals.css'
 
 gsap.registerPlugin(ScrollTrigger)
