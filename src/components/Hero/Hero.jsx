@@ -6,7 +6,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MatchBox from './MatchBox'
 import { playerData } from '../../data/playerData'
 import useMatches from '../../hooks/useMatches'
-import heroBg from '@assets/polaco3.webp'
 import '../../styles/globals.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -140,7 +139,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src={heroBg}
+            src={playerData.heroBg}
             alt=""
             aria-hidden="true"
             draggable={false}

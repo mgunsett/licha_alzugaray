@@ -1,13 +1,12 @@
-import { FaInstagram, FaEnvelope } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaInstagram } from 'react-icons/fa'
 import { IoMdStats } from 'react-icons/io'
 
-//Hero
-import polaco1 from '@assets/polaco1.webp'
-
-import argentina from '@assets/argentina.webp'
-import universitario from '@assets/escudo_univ.webp'
-//Escudos trayectoria
+// Hero
+import heroRecorte from '@assets/hero/alzugaray-recorte.webp'
+import heroFondo from '@assets/hero/alzugaray-fondo.webp'
+import banderaArgentina from '@assets/bandera-argentina.webp'
+import escudoUniversitario from '@assets/escudos/escudo_universitario.webp'
+// Escudos trayectoria
 import escudoAtlParana from '@assets/escudos/escudo_atlparana.webp'
 import escudoNewells from '@assets/escudos/escudo_newells.webp'
 import escudoAlhali from '@assets/escudos/escudo_alhali.webp'
@@ -17,26 +16,28 @@ import escudoLigadequito from '@assets/escudos/escudo_ligadequito.webp'
 import escudoSanjose from '@assets/escudos/escudo_sanjose.webp'
 import escudoUcatolica from '@assets/escudos/escudo_ucatolica.webp'
 import escudoAucas from '@assets/escudos/escudo_aucas.webp'
-//Gallery
-import image1 from '@assets/gallery/image1.webp'
-import image2 from '@assets/gallery/image2.webp'
-import image3 from '@assets/gallery/image3.webp'
-import image4 from '@assets/gallery/image4.webp'
-import image5 from '@assets/gallery/image5.webp'
-import image6 from '@assets/gallery/image6.webp'
-import image7 from '@assets/gallery/image7.webp'
-import image8 from '@assets/gallery/image8.webp'
-//Video
-import photoGraph from '@assets/perfil_video.webp'
-//Prensa
-import logo1 from '@assets/logos/logo1.webp'
-import logo2 from '@assets/logos/logo2.webp'
-import logo3 from '@assets/logos/logo3.webp'
-//Redes
-import transfermkt from '@assets/contact2.svg'
-import ledsports from '@assets/contact3.webp'
-import moon from '@assets/contact4.webp'
+// Galería
+import fotoDisputa from '@assets/gallery/alzugaray-universitario-disputa.webp'
+import fotoEntrenamiento from '@assets/gallery/alzugaray-entrenamiento-pechera.webp'
+import fotoAlternativa from '@assets/gallery/alzugaray-universitario-alternativa.webp'
+import fotoVsNacional from '@assets/gallery/alzugaray-vs-nacional-libertadores.webp'
+import fotoConduccion from '@assets/gallery/alzugaray-universitario-conduccion.webp'
+import fotoSalida from '@assets/gallery/alzugaray-universitario-salida.webp'
+import fotoRemate from '@assets/gallery/alzugaray-universitario-remate.webp'
+import fotoFestejo from '@assets/gallery/alzugaray-universitario-festejo.webp'
+// Video
+import fotoPerfilVideo from '@assets/videos/alzugaray-perfil-video.webp'
+// Prensa
+import logoEspn from '@assets/logos/logo_espn.webp'
+import logoInfobae from '@assets/logos/logo_infobae.webp'
+import logoConmebol from '@assets/logos/logo_conmebol_libertadores.webp'
+// Redes y representantes
+import logoTransfermarkt from '@assets/redes/transfermarkt.svg'
+import logoLedSports from '@assets/representantes/led_sports.webp'
+import logoMoonSports from '@assets/representantes/moon_sports_group.webp'
 
+// Imágenes sin uso todavía (se usan en el rediseño de Videos y Prensa)
+export const extraAssets = { fotoPerfilVideo, logoInfobae }
 
 const name = 'LISANDRO'
 const fullName = 'ALZUGARAY'
@@ -46,20 +47,23 @@ export const playerData = {
   fullName,
   initials: `${name[0]}${fullName[0]}`, // iniciales para logos (PF)
   displayName: `${name} ${fullName}`,   // nombre completo para textos legales / alt
+  shortName: 'Lisandro Alzugaray',       // para alt y aria-labels
+  nickname: 'Licha',
   number: 30,
-  position: 'Mediocampista',
-  positionShort: 'MID',
+  position: 'Extremo derecho',
+  positionShort: 'ED',
   nationality: 'Argentina',
-  nationalityFlag: argentina,
+  nationalityFlag: banderaArgentina,
   age: 36,
-  height: '1.76m',
+  height: '1.70m',
   weight: '70kg',
   foot: 'Derecho',
   birthDate: '17 / 04 / 1990',
   birthPlace: 'Viale, Argentina',
   currentClub: 'Universitario',
-  logoCurrentClub: universitario,
-  image: polaco1,
+  logoCurrentClub: escudoUniversitario,
+  image: heroRecorte,
+  heroBg: heroFondo,
   
 
   stats: [
@@ -86,7 +90,7 @@ export const playerData = {
       name:    'Universitario',
       country: 'Perú',
       years:   '2026 — Actualidad',
-      logo:    universitario,
+      logo:    escudoUniversitario,
       titles:  [],
       info:    '',
     },
@@ -173,8 +177,8 @@ export const playerData = {
       fullTitle: 'Lisandro Alzugaray | Jugadas destacadas 2026',
       season: 'GOL VS NACIONAL',
       league: 'CONMEBOL Libertadores 2026',
-      thumbnail: image7,
-      cover: image7,
+      thumbnail: fotoRemate,
+      cover: fotoRemate,
       category: 'Highlights',
     },
     {
@@ -184,8 +188,8 @@ export const playerData = {
       fullTitle: 'Lisandro Alzugaray | Compilado de goles',
       season: 'Compilado',
       league: 'CONMEBOL Libertadores 2025',
-      thumbnail: image1,
-      cover: image1,
+      thumbnail: fotoDisputa,
+      cover: fotoDisputa,
       category: 'Goles',
     },
     {
@@ -195,8 +199,8 @@ export const playerData = {
       fullTitle: 'Lisandro Alzugaray | Asistencias y juego',
       season: 'Liga de Quito',
       league: 'Liga de Quito',
-      thumbnail: image4,
-      cover: image4,
+      thumbnail: fotoVsNacional,
+      cover: fotoVsNacional,
       category: 'Asistencias',
     },
   ],
@@ -204,35 +208,37 @@ export const playerData = {
   press: [
     {
       media: 'ESPN Deportes',
-      logo:  logo1,
+      logo:  logoEspn,
       title: 'Lisandro Alzugaray volvió con gol clave para Universitario en CONMEBOL Libertadores',
       date:  'Abril 2026',
       url:   'https://espndeportes.espn.com/futbol/copa-libertadores/nota/_/id/16648033/lisandro-alzugaray-volvio-con-gol-clave-para-universitario-en-conmebol-libertadores',
     },
     {
       media: 'CONMEBOL Libertadores',
-      logo:  logo3,
+      logo:  logoConmebol,
       title: '🔥⚽🇵🇪 Un delantero siempre presente en la CONMEBOL #Libertadores: @lisandroalzugaray',
       date:  'Mayo 2026',
       url:   'https://www.instagram.com/p/DYSwt6NDBIC/?hl=es&img_index=4',
     },
     {
       media: 'CONMEBOL Libertadores',
-      logo:  logo3,
+      logo:  logoConmebol,
       title: '¡El equipo de la semana! Lisandro Alzugaray en el 11 ideal tras la semifinal de ida de la CONMEBOL #Libertadores.',
       date:  'Octubre 2025',
       url:   'https://x.com/Libertadores/status/1981820492257669422/photo/1?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1981820492257669422%7Ctwgr%5E81681f2548c9342a151787ad10c31eabb903f3c2%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.teleamazonas.com%2Fdeportes%2Ffutbol%2Flibertadores%2Fseis-futbolistas-liga-quito-equipo-ideal-semana-copa-libertadores-105112%2F',
     },
   ],
 
+  // Las primeras 4 se ven sin abrir "Ver más": van las mejores
   gallery: [
-    { id: 1, src: image1, alt: 'Francisco Fydriszewski', caption: 'Liga Profesional 2024', category: 'Partido', aspect: 'wide' },
-    { id: 2, src: image2, alt: 'Francisco Fydriszewski', caption: 'Festejo ante Racing',    category: 'Festejo', aspect: 'tall' },
-    { id: 3, src: image3, alt: 'Francisco Fydriszewski', caption: 'Pretemporada 2025',       category: 'Entrenamiento', aspect: 'square' },
-    { id: 4, src: image4, alt: 'Francisco Fydriszewski', caption: 'Copa Argentina 2024',     category: 'Partido', aspect: 'wide' },
-    { id: 5, src: image5, alt: 'Francisco Fydriszewski', caption: 'Plantel Talleres 2024',   category: 'Equipo',  aspect: 'wide' },
-    { id: 6, src: image6, alt: 'Francisco Fydriszewski', caption: 'Foto oficial 2024',       category: 'Retrato', aspect: 'tall' },
-    { id: 7, src: image7, alt: 'Francisco Fydriszewski', caption: 'Liga Profesional 2025', category: 'Partido', aspect: 'wide' },
+    { id: 1, src: fotoFestejo,       alt: 'Lisandro Alzugaray festeja un gol con Universitario en el Monumental', caption: 'Festejo en el Monumental',   category: 'Universitario', aspect: 'wide' },
+    { id: 2, src: fotoRemate,        alt: 'Lisandro Alzugaray remata con la camiseta de Universitario',            caption: 'Remate · Universitario',     category: 'Universitario', aspect: 'tall' },
+    { id: 3, src: fotoVsNacional,    alt: 'Lisandro Alzugaray conduce ante Nacional por la Copa Libertadores',     caption: 'Libertadores · vs Nacional', category: 'Universitario', aspect: 'square' },
+    { id: 4, src: fotoSalida,        alt: 'Lisandro Alzugaray sale a la cancha con el plantel de Universitario',   caption: 'Salida al campo',            category: 'Universitario', aspect: 'tall' },
+    { id: 5, src: fotoConduccion,    alt: 'Lisandro Alzugaray conduce la pelota con el número 30 de Universitario', caption: 'Liga 1 · Universitario',    category: 'Universitario', aspect: 'tall' },
+    { id: 6, src: fotoDisputa,       alt: 'Lisandro Alzugaray disputa la pelota entre dos rivales',                caption: 'Disputa · Universitario',    category: 'Universitario', aspect: 'tall' },
+    { id: 7, src: fotoAlternativa,   alt: 'Lisandro Alzugaray con la camiseta alternativa de Universitario',       caption: 'Camiseta alternativa',       category: 'Universitario', aspect: 'square' },
+    { id: 8, src: fotoEntrenamiento, alt: 'Lisandro Alzugaray en la entrada en calor con pechera',                 caption: 'Entrada en calor',           category: 'Entrenamiento', aspect: 'wide' },
   ],
 
   socialMedia: [
@@ -247,7 +253,7 @@ export const playerData = {
     },
     {
       label: 'TransferMarkt',
-      image: transfermkt,
+      image: logoTransfermarkt,
       iconBg: IoMdStats,
       handle: '@lisandro-alzugaray',
       url: 'https://www.transfermarkt.com.ar/lisandro-alzugaray/profil/spieler/396920',
@@ -259,7 +265,7 @@ export const playerData = {
     {
       title:      'Representante Deportivo',
       label:      'Moon Sports Group',
-      image:       moon,
+      image:      logoMoonSports,
       handle:     '@moonsportsgroup_',
       url:        'https://www.instagram.com/moonsportsgroup_/',
       hoverColor: 'rgba(139,69,19,0.18)',
@@ -267,7 +273,7 @@ export const playerData = {
     {
       title:      'Contacto Marketing',
       label:      'led sports marketing',
-      image: ledsports,
+      image:      logoLedSports,
       handle:     '@_ledsports',
       url:        'https://www.instagram.com/_ledsports/',
       hoverColor: 'rgba(212,168,75,0.18)',
