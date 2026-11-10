@@ -1,285 +1,218 @@
 import { useRef, useEffect } from 'react'
-import { Box, Text, Flex, VStack, HStack, Image, useToken } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { Box, Heading, Image, Text } from '@chakra-ui/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import MatchBox from './MatchBox'
+import { CustomEase } from 'gsap/CustomEase'
+import ResultsBar from './ResultsBar'
 import { playerData } from '../../data/playerData'
 import useMatches from '../../hooks/useMatches'
-import '../../styles/globals.css'
+import { u, LANDSCAPE, heroUnitVars, SV_VARS } from '../../utils/heroUnits'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, CustomEase)
+const EASE = CustomEase.create('heroOut', '0.23, 1, 0.32, 1')
 
-const MotionBox = motion(Box)
+const STAGE_BG = '#0d0d0e'
 
-function PlayerPanel() {
-  const [amber] = useToken('colors', ['brand.amber'])
-  return (
-    <Flex
-    direction={{base:'column', md:'row'}}
-    justifyContent={'flex-start'}
-    alignItems={'flex-start'}
-    gap={{base:2,md:4}}
-    >
-      <Text
-        className="player-number"
-        fontFamily="heading"
-        fontSize={{ base: '120px', md: '100px' }}
-        ml={{ base: '-10px', md: 0 }}
-        lineHeight={0.9}
-        borderColor={'brand.amber'}
-        color="transparent"
-        sx={{ WebkitTextStroke: `2px ${amber}` }}
-      >
-        {playerData.number}
-      </Text>
-      <Box w={{base:'60px',md:"1px"}} h={{base:"1px", md: "70px", lg: "80px"}} bg="brand.amber" />
-      <Flex direction={'column'} justifyContent={'flex-start'} gap={1}>
-        <Flex gap={1} justifyContent='flex-start' alignItems='center'>
-          <Text fontFamily="mono" fontSize={{base:'9px',md:"10px"}} color="brand.bone"
-            textTransform="uppercase" letterSpacing="widest">
-            Posición
-          </Text>
-          <Text fontFamily="mono" fontSize={{base:'9px',md:"12px"}} color="brand.amber"
-            fontWeight="700" textTransform="uppercase" letterSpacing="widest">
-            {playerData.position}
-          </Text>
-        </Flex>
-        <Flex justifyContent='flex-start' alignItems='center' gap={{base:'10px',md:'12px'}}>
-          <Image src={playerData.nationalityFlag} w={{ base: '15px', md: '20px' }} />
-          <Text mb={'-5px'} fontFamily="mono" fontSize={{base:'xs',md:"md"}} color="brand.amber" letterSpacing="wider">
-            {playerData.nationality}
-          </Text>
-        </Flex>
-        <Flex justifyContent='flex-start' alignItems={'flex-end'} gap={{base:'8px',md:'10px'}} spacing={1} mt={'3px'} ml={-1}>
-          <Image src={playerData.logoCurrentClub} ml={{base:'2px',md:'none'}} w={{ base: '20px', md: '28px' }} h={{base:'20px',md:'30px'}} />
-          <Text fontFamily="mono" fontSize={{base:'xs',md:"md"}} color="brand.amber" letterSpacing="wider">
-            {playerData.currentClub}
-          </Text>
-        </Flex>
-      </Flex>
-    </Flex>
-  )
+// Oscurece el lado del texto (desktop) o la parte baja (mobile) para que el nombre se lea
+const SHADE = {
+  base: `linear-gradient(0deg, rgba(13,13,14,.97) 0%, rgba(13,13,14,.7) 38%, rgba(13,13,14,.1) 70%, rgba(13,13,14,.45) 100%)`,
+  md: `linear-gradient(90deg, rgba(13,13,14,.97) 0%, rgba(13,13,14,.9) 38%, rgba(13,13,14,.35) 60%, rgba(13,13,14,0) 80%),
+       linear-gradient(0deg, rgba(13,13,14,.95) 0%, transparent 45%)`,
 }
 
 export default function Hero() {
-  const outerRef     = useRef(null)
-  const containerRef = useRef(null)
-  const photoRef     = useRef(null)
-  const line1Ref     = useRef(null)
-  const line2Ref     = useRef(null)
-  const vignetteRef  = useRef(null)
-  const { matches }  = useMatches()
+  const outerRef  = useRef(null)
+  const zoomRef   = useRef(null)
+  const photoRef  = useRef(null)
+  const textRef   = useRef(null)
+  const backRef   = useRef(null)
+  const barRef    = useRef(null)
+  const fadeRefs  = useRef([])
+  const lineRefs  = useRef([])
+  const dimRef    = useRef(null)
+  const sideRef   = useRef(null)
+  const barInRef  = useRef(null)
+  const { matches } = useMatches()
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo([line1Ref.current, line2Ref.current],
-        { yPercent: 110, opacity: 0 },
-        { yPercent: 0, opacity: 1, duration: 1.1, stagger: 0.08, ease: 'expo.out', delay: 0.4 }
-      )
-      gsap.fromTo(photoRef.current,
-        { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
-        { clipPath: 'inset(0% 0 0 0)', opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.6 }
-      )
-    }, containerRef)
-    return () => ctx.revert()
-  }, [])
+  const addFade = (el) => { if (el && !fadeRefs.current.includes(el)) fadeRefs.current.push(el) }
+  const addLine = (el) => { if (el && !lineRefs.current.includes(el)) lineRefs.current.push(el) }
 
+  // Entrada: foto que se asienta, nombre que sube línea por línea y datos que aparecen
   useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const ctx = gsap.context(() => {
-      gsap.fromTo(vignetteRef.current,
-        { opacity: 0.15 },
-        {
-          opacity: 0.75,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: outerRef.current,
-            start: 'top top',
-            end: '+=80vh',
-            scrub: 1.2,
-          },
-        }
-      )
+      if (reduced) {
+        gsap.set(photoRef.current, { opacity: 0.95, rotation: 0, scaleX: -1, scaleY: 1 })
+        gsap.set(backRef.current, { xPercent: -50, opacity: 1 })
+        gsap.set([...lineRefs.current, ...fadeRefs.current, barInRef.current], { opacity: 1, yPercent: 0, y: 0 })
+        gsap.set(sideRef.current, { opacity: 1 })
+        return
+      }
+      const tl = gsap.timeline({ defaults: { ease: EASE } })
+      tl.fromTo(photoRef.current,
+          { opacity: 0, rotation: 0, scaleX: -1.1, scaleY: 1.1 },
+          { opacity: 0.95, rotation: 0, scaleX: -1, scaleY: 1, duration: 2 }, 0)
+        .fromTo(lineRefs.current,
+          { yPercent: 105 },
+          { yPercent: 0, duration: 1.1, stagger: 0.1 }, 0.25)
+        .fromTo(backRef.current,
+          { opacity: 0, xPercent: -50, y: 24 },
+          { opacity: 1, xPercent: -50, y: 0, duration: 1.4 }, 0.3)
+        .fromTo([...fadeRefs.current, barInRef.current],
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.06 }, 0.5)
+        .fromTo(sideRef.current, { opacity: 0 }, { opacity: 1, duration: 0.9 }, 0.6)
     }, outerRef)
     return () => ctx.revert()
   }, [])
 
+  // Salida con el scroll: una sola animación coordinada mientras el Hero está fijo
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+    const ctx = gsap.context(() => {
+      gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: { trigger: outerRef.current, start: 'top top', end: '+=100%', scrub: 0.6 },
+      })
+        .to(zoomRef.current, { scale: 1.08 }, 0)
+        .to(textRef.current, { yPercent: -35, opacity: 0 }, 0)
+        .to(barRef.current, { opacity: 0 }, 0)
+        .to(dimRef.current, { opacity: 0.85 }, 0)
+    }, outerRef)
+    return () => ctx.revert()
+  }, [matches.last, matches.next])
+
   return (
-    <Box ref={outerRef} h="200vh" position="relative" zIndex={1} id= 'hero'>
-      <Box
-        ref={containerRef}
-        position="sticky"
-        top={0}
-        h="100vh"
-        overflow="hidden"
-        bg="brand.dark"
-        sx={{
-          maskImage: 'linear-gradient(black 90%, transparent)',
-          WebkitMaskImage: 'linear-gradient(black 90%, transparent)',
-          // dvh evita el salto al colapsar la barra del navegador en mobile; vh queda de fallback
-          '@supports (height: 100dvh)': { height: '100dvh' },
-        }}
-      >
-        {/* Foto de fondo — fundida con el fondo */}
-        <Box
-          position="absolute"
-          inset={0}
-          zIndex={0}
-          pointerEvents="none"
-          display="flex"
-          justifyContent="center"
-          alignItems={{ base: 'flex-end', md: 'flex-start' }}
-          mt={{ base: 10, md: 12 }}
-          ml={{ base: '0%', md: '4%' }}
-          sx={{
-            maskImage:
-              'radial-gradient(120% 90% at 50% 30%, black 35%, transparent 78%)',
-            WebkitMaskImage:
-              'radial-gradient(120% 90% at 50% 30%, black 35%, transparent 78%)',
-          }}
-        >
-          <Image
-            src={playerData.heroBg}
-            alt=""
-            aria-hidden="true"
-            draggable={false}
-            // Controlá el tamaño acá 👇
-            w={{ base: '100vw', md: '62vw' }}
-            h={{ base: '100vh', md: 'auto' }}
-            objectFit={{ base: 'cover', md: 'contain' }}
-            objectPosition={{ base: 'center', md: 'center top' }}
-            opacity={{ base: 0.21, lg: 0.20 }}
-            filter="grayscale(100%) contrast(1.05)"
-            sx={{ mixBlendMode: 'luminosity' }}
-          />
-        </Box>
-        
-        {/* Player photo */}
-        <Box
-          position="absolute"
-          inset={0}
-          zIndex={{base: 3, md: 5,  lg:9}}
-          pl={{ base: '27%', lg: '10%' }}
-          pt={{ base: '24%', lg: '5%' }}
-          display="flex"
-          justifyContent={{ base: 'flex-start', lg: 'flex-start' }}
-          alignItems={{ base: 'flex-start', lg: 'flex-start' }}
-          pointerEvents="none"
-        >
+    <Box
+      as="section"
+      id="hero"
+      ref={outerRef}
+      position="relative"
+      zIndex={1}
+      h="calc(200 * var(--sv))"
+      sx={{ ...SV_VARS, ...heroUnitVars }}
+    >
+      <Box position="sticky" top={0} h="calc(100 * var(--sv))" overflow="hidden" bg={STAGE_BG}>
+        {/* Foto principal (espejada: la pelota queda a la derecha) */}
+        <Box ref={zoomRef} position="absolute" inset={0} transformOrigin="60% 50%">
           <Box
             ref={photoRef}
-            h={{ base: '78vh', lg: '90vh' }}                               
-            style={{ clipPath: 'inset(100% 0 0 0)', opacity: 0 }}
+            role="img"
+            aria-label={`${playerData.shortName} acomoda la pelota antes de un tiro libre`}
+            position="absolute"
+            inset={0}
+            bgImage={`url(${playerData.heroBg})`}
+            bgRepeat="no-repeat"
+            bgSize={{ base: 'auto 56%', md: 'auto 100%' }}
+            bgPosition={{ base: '0% 26%', md: 'left 0 bottom 0' }}
+            opacity={0}
+          />
+        </Box>
+
+        <Box position="absolute" inset={0} bg={SHADE} pointerEvents="none" />
+
+        {/* Rótulo vertical (solo desktop) */}
+        <Text
+          ref={sideRef}
+          opacity={0}
+          display={{ base: 'none', lg: 'block' }}
+          position="absolute"
+          right="clamp(16px, 3vw, 40px)"
+          top="50%"
+          transform="translateY(-50%) rotate(180deg)"
+          sx={{ writingMode: 'vertical-rl' }}
+          fontFamily="mono"
+          fontSize="11px"
+          letterSpacing="0.4em"
+          textTransform="uppercase"
+          color="rgba(239,230,218,0.5)"
+        >
+          {playerData.currentClub} · Temporada 2026
+        </Text>
+
+        {/* Nombre + rótulo, con la foto de espaldas detrás (desktop) */}
+        <Box
+          ref={textRef}
+          position="absolute"
+          zIndex={2}
+          left={{ base: '16px', md: 'clamp(16px, 6vw, 96px)' }}
+          right={{ base: '16px', md: 'auto' }}
+          bottom={{ base: 'max(calc(20 * var(--sv)), 140px)', md: 'max(calc(19 * var(--sv)), 128px)' }}
+        >
+          <Box
+            ref={backRef}
+            aria-hidden="true"
+            display={{ base: 'none', md: 'block' }}
+            position="absolute"
+            left="50%"
+            bottom="calc(-6 * var(--sv))"
+            h="calc(78 * var(--sv))"
+            zIndex={-1}
+            pointerEvents="none"
+            opacity={0}
+            sx={{ [LANDSCAPE]: { display: 'none' }, '@media (max-height: 520px)': { display: 'none' } }}
           >
             <Image
-              className="player-photo"
-              src={playerData.image}
-              alt={`${playerData.displayName}, ${playerData.position.toLowerCase()} profesional de ${playerData.currentClub}`}
-              h={{ base: '90%', lg: '100%' }}
-              w={{ base: '58vw', lg: '30vw' }}
-              objectFit="contain"
-              objectPosition="bottom center"
-              draggable={false}
+              src={playerData.heroBack}
+              alt=""
+              h="100%"
+              w="auto"
+              maxW="none"
+              opacity={0.45}
+              filter="grayscale(1) contrast(1.08) brightness(.75)"
+              sx={{
+                maskImage: 'linear-gradient(black 40%, transparent 85%)',
+                WebkitMaskImage: 'linear-gradient(black 40%, transparent 85%)',
+              }}
             />
           </Box>
-        </Box>
 
-        {/* Visible name text */}
-        <Box
-          position="absolute"
-          inset={0}
-          zIndex={2}
-          pointerEvents="none"
-          display="flex"
-          flexDir="column"
-          alignItems='center'
-          justifyContent={{ base: 'flex-start', md: 'center' }}
-          pl={{ base: 0, lg: '15%' }}
-          pt={{ base: '22%', lg: '0%' }}
-          mt={{ base: '0', lg: '-4%' }}
-        >
-          <Flex 
-          direction="column" 
-          as="h1" 
-          overflow="hidden"
+          <Text
+            ref={addFade}
+            display="flex"
+            alignItems="center"
+            gap="10px"
+            fontFamily="mono"
+            fontSize={{ base: u(13), md: u(13) }}
+            letterSpacing="0.14em"
+            textTransform="uppercase"
+            color="brand.amber"
+            sx={{ [LANDSCAPE]: { fontSize: u(12) } }}
           >
-            <Text
-              ref={line2Ref}
-              as="span"
-              display="block"
-              fontFamily="heading"
-              fontSize={{ base: '28vw', md: '16vw', lg: '13vw' }}
-              color="brand.amber"
-              lineHeight={0.9}
-              style={{ opacity: 0 }}
-            >
-              {playerData.fullName}
-            </Text>
-            <Text
-              ref={line1Ref}
-              as="span"
-              display="block"
-              fontFamily="heading"
-              fontSize={{ base: '25vw', md: '16vw', lg: '13vw' }}
-              color="brand.gray2"
-              lineHeight={0.9}
-              style={{ opacity: 0 }}
-              mt={{ base: '-10px', md: '-20px', lg: '-30px' }}
-            >
-              {playerData.name}
-            </Text>
-            
-          </Flex>
+            <Image src={playerData.logoCurrentClub} alt="" w={{ base: u(18), md: u(20) }} h="auto" />
+            #{playerData.number} · {playerData.position}
+          </Text>
+
+          <Heading
+            as="h1"
+            mt={u(10)}
+            fontFamily="heading"
+            fontWeight="400"
+            lineHeight={0.84}
+            fontSize={{ base: u(84), md: u(123), lg: u(216) }}
+            sx={{ [LANDSCAPE]: { fontSize: u(100) } }}
+          >
+            <Box as="span" display="block" overflow="hidden">
+              <Box as="span" ref={addLine} display="block" fontSize="0.42em" letterSpacing="0.08em" color="brand.cream">
+                {playerData.name}
+              </Box>
+            </Box>
+            <Box as="span" display="block" overflow="hidden">
+              <Box as="span" ref={addLine} display="block" color="brand.amber">
+                {playerData.fullName}
+              </Box>
+            </Box>
+          </Heading>
         </Box>
 
-
-        {/* Player info — bottom left */}
-        <Box
-          className="player-info"
-          position="absolute"
-          bottom={{ base: '37%', lg: '22%' }}
-          left={{ base: '5%', lg: '35%' }}
-          zIndex={15}
-        >
-          <PlayerPanel />
+        {/* Barra de partidos: el contenedor hace la entrada y la barra la salida con el scroll */}
+        <Box ref={barInRef} position="absolute" left={0} right={0} bottom={0} zIndex={4} opacity={0}>
+          <ResultsBar ref={barRef} last={matches.last} next={matches.next} />
         </Box>
 
-        {/* MatchBox desktop */}
-        <Box
-          position="absolute"
-          bottom="12%"
-          right={0}
-          top={{ base: 'auto', lg: '20%' }}
-          zIndex={10}
-          display={{ base: 'none', lg: 'block' }}
-        >
-          <MatchBox last={matches.last} next={matches.next} variant="card" />
-        </Box>
-
-        {/* MatchBox mobile */}
-        <Box
-          position="absolute"
-          bottom={{base:"30px",md:"40px"}}
-          left={0}
-          right={0}
-          zIndex={15}
-          display={{ base: 'block', lg: 'none' }}
-        >
-          <MatchBox last={matches.last} next={matches.next} variant="strip" />
-        </Box>
-
-
-
-        {/* Vignette */}
-        <Box
-          ref={vignetteRef}
-          position="absolute"
-          inset={0}
-          zIndex={20}
-          background="radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.65) 100%)"
-          pointerEvents="none"
-          style={{ opacity: 0.15 }}
-        />
+        {/* Oscurecido de salida */}
+        <Box ref={dimRef} position="absolute" inset={0} zIndex={5} bg="brand.panel" opacity={0} pointerEvents="none" />
       </Box>
     </Box>
   )

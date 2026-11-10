@@ -4,6 +4,7 @@ import { IoMdStats } from 'react-icons/io'
 // Hero
 import heroRecorte from '@assets/hero/alzugaray-recorte.webp'
 import heroFondo from '@assets/hero/alzugaray-fondo.webp'
+import heroEspalda from '@assets/hero/alzugaray-espalda.webp'
 import banderaArgentina from '@assets/bandera-argentina.webp'
 import escudoUniversitario from '@assets/escudos/escudo_universitario.webp'
 // Escudos trayectoria
@@ -64,6 +65,7 @@ export const playerData = {
   logoCurrentClub: escudoUniversitario,
   image: heroRecorte,
   heroBg: heroFondo,
+  heroBack: heroEspalda,
   
 
   stats: [

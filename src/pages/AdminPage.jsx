@@ -16,8 +16,9 @@ import { auth, storage, isFirebaseConfigured, playerMatchDoc, PLAYER_SLUG } from
 
 const emptySlot = {
   home_team: '', away_team: '',
+  home_short: '', away_short: '',
   home_score: '', away_score: '',
-  match_date: '', stadium: '', competition: '',
+  match_date: '', match_time: '', stadium: '', competition: '',
   home_shield: '', away_shield: '',
 }
 
@@ -121,7 +122,11 @@ function MatchForm({ slot, label, data, onSave, uploading }) {
             </Text>
             <FormControl mb={3}>
               <FormLabel {...labelStyle}>Equipo</FormLabel>
-              <Input {...inputStyle} value={form.home_team} onChange={set('home_team')} placeholder="Ej: Talleres" />
+              <Input {...inputStyle} value={form.home_team} onChange={set('home_team')} placeholder="Ej: Universitario" />
+            </FormControl>
+            <FormControl mb={3}>
+              <FormLabel {...labelStyle}>Sigla (opcional)</FormLabel>
+              <Input {...inputStyle} value={form.home_short} onChange={set('home_short')} placeholder="UNI" maxLength={4} textTransform="uppercase" />
             </FormControl>
             <FormControl mb={3}>
               <FormLabel {...labelStyle}>Goles</FormLabel>
@@ -150,7 +155,11 @@ function MatchForm({ slot, label, data, onSave, uploading }) {
             </Text>
             <FormControl mb={3}>
               <FormLabel {...labelStyle}>Equipo</FormLabel>
-              <Input {...inputStyle} value={form.away_team} onChange={set('away_team')} placeholder="Ej: River Plate" />
+              <Input {...inputStyle} value={form.away_team} onChange={set('away_team')} placeholder="Ej: Sporting Cristal" />
+            </FormControl>
+            <FormControl mb={3}>
+              <FormLabel {...labelStyle}>Sigla (opcional)</FormLabel>
+              <Input {...inputStyle} value={form.away_short} onChange={set('away_short')} placeholder="SCR" maxLength={4} textTransform="uppercase" />
             </FormControl>
             <FormControl mb={3}>
               <FormLabel {...labelStyle}>Goles</FormLabel>
@@ -167,18 +176,22 @@ function MatchForm({ slot, label, data, onSave, uploading }) {
       </Grid>
 
       {/* Match details */}
-      <Grid templateColumns={{ base: '1fr', sm: 'repeat(3, 1fr)' }} gap={3} mt={4}>
+      <Grid templateColumns={{ base: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }} gap={3} mt={4}>
         <FormControl>
           <FormLabel {...labelStyle}>Fecha</FormLabel>
-          <Input {...inputStyle} value={form.match_date} onChange={set('match_date')} placeholder="22 Jun 2025" />
+          <Input {...inputStyle} value={form.match_date} onChange={set('match_date')} placeholder="Dom 16 Nov" />
+        </FormControl>
+        <FormControl>
+          <FormLabel {...labelStyle}>Hora{slot === 'last' ? ' (no se muestra)' : ''}</FormLabel>
+          <Input {...inputStyle} value={form.match_time} onChange={set('match_time')} placeholder="20:00" />
         </FormControl>
         <FormControl>
           <FormLabel {...labelStyle}>Estadio</FormLabel>
-          <Input {...inputStyle} value={form.stadium} onChange={set('stadium')} placeholder="Mario Kempes" />
+          <Input {...inputStyle} value={form.stadium} onChange={set('stadium')} placeholder="Monumental" />
         </FormControl>
         <FormControl>
           <FormLabel {...labelStyle}>Competencia</FormLabel>
-          <Input {...inputStyle} value={form.competition} onChange={set('competition')} placeholder="Liga Profesional" />
+          <Input {...inputStyle} value={form.competition} onChange={set('competition')} placeholder="Liga 1" />
         </FormControl>
       </Grid>
 
@@ -437,9 +450,12 @@ export default function AdminPage() {
       const payload = {
         home_team:   form.home_team,
         away_team:   form.away_team,
+        home_short:  (form.home_short || '').trim().toUpperCase(),
+        away_short:  (form.away_short || '').trim().toUpperCase(),
         home_score:  form.home_score !== '' ? Number(form.home_score) : null,
         away_score:  form.away_score !== '' ? Number(form.away_score) : null,
         match_date:  form.match_date,
+        match_time:  form.match_time || '',
         stadium:     form.stadium,
         competition: form.competition,
         home_shield: homeShieldUrl,

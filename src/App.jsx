@@ -15,7 +15,7 @@ function Landing() {
     <Box as="main" bg="brand.dark" overflowX="hidden">
       <Navbar />
       <Hero />
-      <Box mt="-100vh" position="relative" zIndex={21}>
+      <Box mt="-100vh" position="relative" zIndex={21} sx={{ '@supports (height: 1svh)': { marginTop: '-100svh' } }}>
         <StatsSection />
         <VideosSection />
         <GallerySection />

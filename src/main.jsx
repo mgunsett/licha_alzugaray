@@ -10,6 +10,8 @@ import App from './App'
 import './styles/globals.css'
 
 gsap.registerPlugin(ScrollTrigger)
+// El alto del hero no cambia cuando aparece/desaparece la barra del navegador en mobile
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 const lenis = new Lenis({
   duration:       1.2,
