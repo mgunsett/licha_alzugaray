@@ -60,7 +60,7 @@ export const playerData = {
   weight: '70kg',
   foot: 'Derecho',
   birthDate: '17 / 04 / 1990',
-  birthPlace: 'Viale, Argentina',
+  birthPlace: 'Viale, Entre Ríos',
   currentClub: 'Universitario',
   logoCurrentClub: escudoUniversitario,
   image: heroRecorte,
@@ -68,106 +68,80 @@ export const playerData = {
   heroBack: heroEspalda,
   
 
+  // Texto de apertura de Estadísticas
+  statsIntro: 'Extremo derecho de pie hábil derecho. Diez clubes en cuatro países y campeón de la Copa Sudamericana 2023 con Liga de Quito.',
+  seasonLabel: 'Temporada 2026',
+
+  // Zona de influencia en la cancha (viewBox 68×105, ataca hacia arriba).
+  // Orientativa según la posición: no es un mapa de calor de partido.
+  pitchZone: {
+    label: 'banda derecha, del medio campo al área rival',
+    main: { x: 55, y: 30, rx: 14, ry: 19 },
+    secondary: [
+      { x: 50, y: 55, rx: 11, ry: 12 },
+      { x: 42, y: 20, rx: 10, ry: 9 },
+    ],
+  },
+
+  // Atributos de 0 a 100
   stats: [
-    { label: 'Velocidad',      value: 91 },
-    { label: 'Definición',     value: 88 },
-    { label: 'Regate',         value: 84 },
-    { label: 'Pases Completos',    value: 79 },
-    { label: 'Presión Alta',   value: 82 },
-    { label: 'Visión de Juego',value: 79 },
+    { label: 'Velocidad',       value: 91 },
+    { label: 'Definición',      value: 88 },
+    { label: 'Regate',          value: 84 },
+    { label: 'Pases completos', value: 79 },
+    { label: 'Presión alta',    value: 82 },
+    { label: 'Visión de juego', value: 79 },
   ],
 
+  // highlight: el número va en el color de acento
   seasonStats: [
-    { label: 'Partidos',    value: 16 },
-    { label: 'Goles',       value: 3 },
-    { label: 'Asistencias', value: 1  },
-    { label: 'Tiros al árco', value: 8  },
-    { label: 'Min / Part.', value: "1,022'" },
-    { label: 'Valoración', value: 7.4  },
-
+    { label: 'Partidos',        value: 16 },
+    { label: 'Goles',           value: 3, highlight: true },
+    { label: 'Asistencias',     value: 1 },
+    { label: 'Tiros al arco',   value: 8 },
+    { label: 'Minutos jugados', value: "1.022'" },
+    { label: 'Valoración',      value: 7.4, highlight: true },
   ],
 
+  // Código y color de cada país en el recorrido de clubes
+  countries: {
+    'Perú':           { code: 'PER', color: '#bda78e' },
+    'Ecuador':        { code: 'ECU', color: '#c0ab32' },
+    'Arabia Saudita': { code: 'KSA', color: '#4f7d5c' },
+    'Argentina':      { code: 'ARG', color: '#9b948c' },
+  },
+
+  // Clubes (un registro por club). titles = títulos; distinctions = distinciones individuales
   clubs: [
-    {
-      name:    'Universitario',
-      country: 'Perú',
-      years:   '2026 — Actualidad',
-      logo:    escudoUniversitario,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Liga de Quito',
-      country: 'Ecuador',
-      years:   '2023 — 2025',
-      logo:    escudoLigadequito,
-      titles:  ['Serie A Ecuador 2023','Copa Sudamericana 2023', 'Serie A Ecuador 2024', 'Supercopa Ecuador 2024'],
-      info:    '',
-    },
-    {
-      name:    'Al-Hali Saudi',
-      country: 'Arabia Saudita',
-      years:   '2022',
-      logo:    escudoAlhali,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Universidad Católica',
-      country: 'Ecuador',
-      years:   '2021 — 2022',
-      logo:    escudoUcatolica,
-      titles:  [],
-      info:    '11 ideal de la Serie A de Ecuador 2021',
-    },
-    {
-      name:    'S.D Aucas',
-      country: 'Ecuador',
-      years:   '2020',
-      logo:    escudoAucas,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Central Córdoba',
-      country: 'Argentina',
-      years:   '2019',
-      logo:    escudoCentralCordoba,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Newell\'s Old Boys',
-      country: 'Argentina',
-      years:   '2018',
-      logo:    escudoNewells,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Chaco For Ever',
-      country: 'Argentina',
-      years:   '2013-2014 / 2017',
-      logo:    escudoChaco,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'San José',
-      country: 'Argentina',
-      years:   '2016 — 2017',
-      logo:    escudoSanjose,
-      titles:  [],
-      info:    '',
-    },
-    {
-      name:    'Atlético Paraná',
-      country: 'Argentina',
-      years:   '2011-2013 / 2015',
-      logo:    escudoAtlParana,
-      titles:  [],
-      info:    '',
-    },
+    { id: 'universitario',  name: 'Universitario',        short: 'Universitario',   country: 'Perú',           years: '2026 — Hoy',          logo: escudoUniversitario,   titles: [], distinctions: [] },
+    { id: 'ligadequito',    name: 'Liga de Quito',        short: 'Liga de Quito',   country: 'Ecuador',        years: '2023 — 2025',         logo: escudoLigadequito,
+      titles: ['Serie A Ecuador 2023', 'Copa Sudamericana 2023', 'Serie A Ecuador 2024', 'Supercopa Ecuador 2024'], distinctions: [] },
+    { id: 'alhali',         name: 'Al-Hali Saudi',        short: 'Al-Hali',         country: 'Arabia Saudita', years: '2022',                logo: escudoAlhali,          titles: [], distinctions: [] },
+    { id: 'ucatolica',      name: 'Universidad Católica', short: 'U. Católica',     country: 'Ecuador',        years: '2021 — 2022',         logo: escudoUcatolica,       titles: [],
+      distinctions: ['11 ideal de la Serie A de Ecuador 2021'] },
+    { id: 'aucas',          name: 'S.D. Aucas',           short: 'Aucas',           country: 'Ecuador',        years: '2020',                logo: escudoAucas,           titles: [], distinctions: [] },
+    { id: 'centralcordoba', name: 'Central Córdoba',      short: 'Central Córdoba', country: 'Argentina',      years: '2019',                logo: escudoCentralCordoba,  titles: [], distinctions: [] },
+    { id: 'newells',        name: "Newell's Old Boys",    short: "Newell's",        country: 'Argentina',      years: '2018',                logo: escudoNewells,         titles: [], distinctions: [] },
+    { id: 'chaco',          name: 'Chaco For Ever',       short: 'Chaco For Ever',  country: 'Argentina',      years: '2013 — 2014 · 2017',  logo: escudoChaco,           titles: [], distinctions: [] },
+    { id: 'sanjose',        name: 'San José',             short: 'San José',        country: 'Argentina',      years: '2016 — 2017',         logo: escudoSanjose,         titles: [], distinctions: [] },
+    { id: 'atlparana',      name: 'Atlético Paraná',      short: 'Atl. Paraná',     country: 'Argentina',      years: '2011 — 2013 · 2015',  logo: escudoAtlParana,       titles: [], distinctions: [] },
+  ],
+
+  // Recorrido: cada etapa en un club, de la más reciente a la primera.
+  // Un club puede aparecer más de una vez (volvió en otra etapa).
+  career: [
+    { club: 'universitario',  from: 2026 },
+    { club: 'ligadequito',    from: 2023 },
+    { club: 'alhali',         from: 2022 },
+    { club: 'ucatolica',      from: 2021 },
+    { club: 'aucas',          from: 2020 },
+    { club: 'centralcordoba', from: 2019 },
+    { club: 'newells',        from: 2018 },
+    { club: 'chaco',          from: 2017 },
+    { club: 'sanjose',        from: 2016 },
+    { club: 'atlparana',      from: 2015 },
+    { club: 'chaco',          from: 2013 },
+    { club: 'atlparana',      from: 2011 },
   ],
 
   videos: [
