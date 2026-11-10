@@ -21,7 +21,10 @@ const brand = {
   bone:       '#FFFFFF', // blanco (texto principal)
   boneWarm:   '#3083e2', // blanco azulado (detalles)
   rec:        '#E5484D', // rojo del indicador REC
-  bgRef:      '#bda78e1a'// bg de hover en cajas
+  bgRef:      '#bda78e1a',// bg de hover en cajas
+  panel:      '#151617', // fondo sólido (menú mobile, paneles)
+  cream:      '#efe6da', // crema cálido (textos sobre paneles)
+  warmGray:   '#9b948c', // gris cálido (texto secundario)
 }
 
 // Colores de la firma del desarrollador (crédito en el footer)
