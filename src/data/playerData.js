@@ -182,27 +182,36 @@ export const playerData = {
     },
   ],
 
+  // Prensa: de la más reciente a la más antigua. type = formato (Nota / Publicación en ...).
+  // Titulares sin emojis: en Windows las banderas se ven como letras.
+  pressIntro: 'Lo que dijeron de él en la Libertadores, de Quito a Lima.',
   press: [
+    {
+      media: 'CONMEBOL Libertadores',
+      logo:  logoConmebol,
+      type:  'Publicación en Instagram',
+      title: 'Un delantero siempre presente en la CONMEBOL Libertadores: @lisandroalzugaray',
+      date:  'Mayo 2026',
+      cta:   'Ver la publicación',
+      url:   'https://www.instagram.com/p/DYSwt6NDBIC/',
+    },
     {
       media: 'ESPN Deportes',
       logo:  logoEspn,
+      type:  'Nota',
       title: 'Lisandro Alzugaray volvió con gol clave para Universitario en CONMEBOL Libertadores',
       date:  'Abril 2026',
+      cta:   'Leer la nota',
       url:   'https://espndeportes.espn.com/futbol/copa-libertadores/nota/_/id/16648033/lisandro-alzugaray-volvio-con-gol-clave-para-universitario-en-conmebol-libertadores',
     },
     {
       media: 'CONMEBOL Libertadores',
       logo:  logoConmebol,
-      title: '🔥⚽🇵🇪 Un delantero siempre presente en la CONMEBOL #Libertadores: @lisandroalzugaray',
-      date:  'Mayo 2026',
-      url:   'https://www.instagram.com/p/DYSwt6NDBIC/?hl=es&img_index=4',
-    },
-    {
-      media: 'CONMEBOL Libertadores',
-      logo:  logoConmebol,
-      title: '¡El equipo de la semana! Lisandro Alzugaray en el 11 ideal tras la semifinal de ida de la CONMEBOL #Libertadores.',
+      type:  'Publicación en X',
+      title: '¡El equipo de la semana! Lisandro Alzugaray en el 11 ideal tras la semifinal de ida de la CONMEBOL Libertadores.',
       date:  'Octubre 2025',
-      url:   'https://x.com/Libertadores/status/1981820492257669422/photo/1?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1981820492257669422%7Ctwgr%5E81681f2548c9342a151787ad10c31eabb903f3c2%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.teleamazonas.com%2Fdeportes%2Ffutbol%2Flibertadores%2Fseis-futbolistas-liga-quito-equipo-ideal-semana-copa-libertadores-105112%2F',
+      cta:   'Ver la publicación',
+      url:   'https://x.com/Libertadores/status/1981820492257669422',
     },
   ],
 
