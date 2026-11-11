@@ -1,9 +1,3 @@
-// ─────────────────────────────────────────────────────────────
-// Riel de Instagram: logo + "Instagram" en vertical a todo el alto.
-// Va a la izquierda de las cards y toma SU altura: con
-// container-type: size el riel no empuja el alto de la fila, y la
-// palabra se ajusta a esa altura (ver useFitWord).
-// ─────────────────────────────────────────────────────────────
 import { useLayoutEffect, useRef } from 'react'
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { FaInstagram } from 'react-icons/fa'
@@ -13,16 +7,11 @@ const instagram = playerData.socialMedia.find((s) => s.label === 'Instagram')
 const IG_GRADIENT = 'linear-gradient(45deg, #f9ce34, #ee2a7b 50%, #6228d7)'
 
 const WORD = 'Instagram'
-// Alto de letra respecto del ancho del riel: ~1.2 deja la palabra casi de borde a borde
 const WIDTH_RATIO = 1.2
 
-// En mobile el espaciado entre letras tiene tope (en em) para que no queden tan separadas;
-// el alto restante lo completa el usuario (el @ del jugador), que solo se muestra en mobile.
 const MOBILE_MAX_SPACING = 0.14
 const HANDLE_GAP = 20
 
-// Ajusta la palabra para que ocupe exactamente el alto disponible:
-// primero el tamaño según el ancho; el alto que sobra se reparte en el espaciado entre letras.
 function useFitWord(wrapRef, wordRef, handleRef) {
   useLayoutEffect(() => {
     const wrap = wrapRef.current
@@ -48,7 +37,7 @@ function useFitWord(wrapRef, wordRef, handleRef) {
       if (isMobile) spacing = Math.min(spacing, size * MOBILE_MAX_SPACING)
       word.style.letterSpacing = `${spacing}px`
       // El espaciado también se suma tras la última letra: se compensa para pegar la palabra a los bordes
-      word.style.transform = `translateY(${-spacing / 2}px) rotate(180deg)`
+      word.style.transform = `translateY(${-spacing / 1}px) rotate(180deg)`
     }
 
     fit()

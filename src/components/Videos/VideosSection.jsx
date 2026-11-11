@@ -160,9 +160,7 @@ export default function VideosSection() {
               Videos
             </Text>
           </Box>
-          <Text maxW="360px" color="brand.warmGray" lineHeight={1.6} fontSize="15px">
-            {playerData.videosIntro}
-          </Text>
+          
         </Flex>
 
         {/* ── Cards ── */}

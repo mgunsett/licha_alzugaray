@@ -51,7 +51,7 @@ export default function Hero() {
       const tl = gsap.timeline({ defaults: { ease: EASE } })
       tl.fromTo(photoRef.current,
           { opacity: 0, rotation: 0, scaleX: -1.1, scaleY: 1.1 },
-          { opacity: 0.95, rotation: 0, scaleX: -1, scaleY: 1, duration: 2 }, 0)
+          { opacity: 0.95, rotation: 0, scaleX: 1, scaleY: 1, duration: 2 }, 0)
         .fromTo(lineRefs.current,
           { yPercent: 105 },
           { yPercent: 0, duration: 1.1, stagger: 0.1 }, 0.25)
@@ -105,7 +105,7 @@ export default function Hero() {
             bgImage={`url(${playerData.heroBg})`}
             bgRepeat="no-repeat"
             bgSize={{ base: 'auto 56%', md: 'auto 100%' }}
-            bgPosition={{ base: '0% 26%', md: 'left 0 bottom 0' }}
+            bgPosition={{ base: '0% 26%', md: 'right 0 bottom 0' }}
             opacity={0}
           />
         </Box>
@@ -179,9 +179,10 @@ export default function Hero() {
             textTransform="uppercase"
             color="brand.amber"
             sx={{ [LANDSCAPE]: { fontSize: u(12) } }}
+            ml='30px'
           >
             <Image src={playerData.logoCurrentClub} alt="" w={{ base: u(18), md: u(20) }} h="auto" />
-            #{playerData.number} · {playerData.position}
+             {playerData.position}
           </Text>
 
           <Heading
@@ -193,7 +194,7 @@ export default function Hero() {
             fontSize={{ base: u(84), md: u(123), lg: u(216) }}
             sx={{ [LANDSCAPE]: { fontSize: u(100) } }}
           >
-            <Box as="span" display="block" overflow="hidden">
+            <Box as="span" display="block" overflow="hidden" ml='30px'>
               <Box as="span" ref={addLine} display="block" fontSize="0.42em" letterSpacing="0.08em" color="brand.cream">
                 {playerData.name}
               </Box>
