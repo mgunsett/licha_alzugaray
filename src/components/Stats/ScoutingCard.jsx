@@ -59,15 +59,13 @@ function Profile() {
 function Zone() {
   return (
     <Box>
-      <PanelTitle title="Zona de influencia" aside="Ataca hacia arriba" />
+      <PanelTitle title="Zona de influencia"  />
       <PitchZone />
       <Flex justify="center" gap="18px" mt="14px" aria-hidden="true">
         <Flex align="center" gap="7px"><Box w="16px" h="6px" borderRadius="3px" bg="brand.amber" /><Label>Zona principal</Label></Flex>
         <Flex align="center" gap="7px"><Box w="16px" h="6px" borderRadius="3px" bg="brand.dorado" opacity={0.7} /><Label>Apariciones</Label></Flex>
       </Flex>
-      <Text mt={2} textAlign="center" fontSize="12px" color="brand.warmGray">
-        Mapa orientativo según su posición, no un mapa de calor de partido.
-      </Text>
+   
     </Box>
   )
 }
@@ -103,7 +101,7 @@ function Attributes() {
     <Grid templateColumns={{ base: '1fr', lg: '240px 1fr' }} gap={7} px={{ base: 5, md: 8 }} py={7} borderTop={LINE}>
       <Box>
         <Text as="h3" fontFamily="heading" fontSize="28px" lineHeight={1} letterSpacing="0.02em">Atributos</Text>
-        <Text mt={2} fontSize="14px" lineHeight={1.5} color="brand.warmGray">Escala de 0 a 100. Cada bloque son 10 puntos.</Text>
+        
       </Box>
       <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap="20px 32px">
         {playerData.stats.map((a) => (

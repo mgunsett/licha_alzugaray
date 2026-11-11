@@ -1,7 +1,3 @@
-// ─────────────────────────────────────────────────────────────
-// Prensa — Citas: un titular a la vez en tipografía grande y,
-// debajo, los medios como pestañas para cambiar de nota.
-// ─────────────────────────────────────────────────────────────
 import { useEffect, useRef, useState } from 'react'
 import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import { FiArrowUpRight } from 'react-icons/fi'
@@ -75,9 +71,7 @@ export default function PressSection() {
               Prensa
             </Text>
           </Box>
-          {playerData.pressIntro && (
-            <Text maxW="42ch" color="brand.warmGray" lineHeight={1.6} fontSize="15px">{playerData.pressIntro}</Text>
-          )}
+          
         </Flex>
 
         {/* Cita */}
@@ -102,12 +96,8 @@ export default function PressSection() {
             </Text>
           </Box>
           <Flex wrap="wrap" align="center" gap="12px 18px" mt={6} sx={swap}>
-            <Text as="cite" fontStyle="normal" fontFamily="mono" fontWeight={600} fontSize="15px" letterSpacing="0.04em">
-              {note.media}
-            </Text>
-            <Text fontFamily="mono" fontSize="12px" fontWeight={500} letterSpacing="0.08em" color="brand.amber">
-              {note.type} · {note.date}
-            </Text>
+            
+           
             <Flex
               as="a"
               href={note.url}

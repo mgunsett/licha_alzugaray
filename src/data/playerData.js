@@ -85,7 +85,7 @@ export const playerData = {
   age: 36,
   height: '1.70m',
   weight: '70kg',
-  foot: 'Derecho',
+  foot: 'Izquierdo',
   birthDate: '17 / 04 / 1990',
   birthPlace: 'Viale, Entre Ríos',
   currentClub: 'Universitario',
@@ -113,21 +113,21 @@ export const playerData = {
   // Atributos de 0 a 100
   stats: [
     { label: 'Velocidad',       value: 91 },
-    { label: 'Definición',      value: 88 },
+    { label: 'Definición',      value: 92 },
     { label: 'Regate',          value: 84 },
-    { label: 'Pases completos', value: 79 },
+    { label: 'Pases completos', value: 89 },
     { label: 'Presión alta',    value: 82 },
-    { label: 'Visión de juego', value: 79 },
+    { label: 'Visión de juego', value: 82 },
   ],
 
   // highlight: el número va en el color de acento
   seasonStats: [
-    { label: 'Partidos',        value: 16 },
-    { label: 'Goles',           value: 3, highlight: true },
-    { label: 'Asistencias',     value: 1 },
-    { label: 'Tiros al arco',   value: 8 },
-    { label: 'Minutos jugados', value: "1.022'" },
-    { label: 'Valoración',      value: 7.4, highlight: true },
+    { label: 'Partidos',        value: 29  },
+    { label: 'Goles',           value: 7, highlight: true },
+    { label: 'Asistencias',     value: 5 },
+    { label: 'Tiros al arco',   value: 21 },
+    { label: 'Minutos jugados', value: "1.478'" },
+    { label: 'Valoración',      value: 8.6, highlight: true },
   ],
 
   // Código y color de cada país en el recorrido de clubes
@@ -328,7 +328,7 @@ export const playerData = {
       forWhom:    'clubes, intermediarios y propuestas deportivas',
       cta:        'Escribir a Moon Sports',
       url:        'https://www.instagram.com/moonsportsgroup_/',
-      hoverColor: 'rgba(189,167,142,0.30)',
+      hoverColor: 'rgba(182, 168, 42, 0.3)',
     },
     {
       title:      'Marketing y marcas',
@@ -338,7 +338,7 @@ export const playerData = {
       forWhom:    'marcas, campañas, eventos y prensa',
       cta:        'Escribir a LED Sports',
       url:        'https://www.instagram.com/_ledsports/',
-      hoverColor: 'rgba(122,31,31,0.40)',
+      hoverColor: 'rgba(192, 107, 38, 0.4)',
     },
   ],
 }

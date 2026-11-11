@@ -29,6 +29,17 @@ function Shield({ team }) {
   )
 }
 
+// Escudo + nombre: sigla en mobile/tablet, nombre completo en desktop (lg+)
+function Team({ team }) {
+  return (
+    <Flex as="span" align="center" gap={2} whiteSpace="nowrap">
+      <Shield team={team} />
+      <Box as="span" display={{ base: 'inline', lg: 'none' }}>{code(team)}</Box>
+      <Box as="span" display={{ base: 'none', lg: 'inline' }}>{team.name.toUpperCase()}</Box>
+    </Flex>
+  )
+}
+
 function Slot({ match, kind }) {
   const isNext   = kind === 'next'
   const hasScore = match.homeScore !== null && match.awayScore !== null && !isNext
@@ -77,7 +88,9 @@ function Slot({ match, kind }) {
         as="dd"
         gridArea="t"
         align="center"
-        gap={2}
+        flexWrap="wrap"
+        columnGap={2}
+        rowGap={1}
         mt={{ base: 0, md: '6px' }}
         fontFamily="heading"
         fontSize={{ base: '21px', md: '30px' }}
@@ -86,15 +99,13 @@ function Slot({ match, kind }) {
         color="brand.bone"
         aria-hidden="true"
       >
-        <Shield team={match.home} />
-        {code(match.home)}
+        <Team team={match.home} />
         {hasScore ? (
-          <Box as="span" color="brand.amber" mx={1}>{match.homeScore} – {match.awayScore}</Box>
+          <Box as="span" color="brand.amber" mx={1} whiteSpace="nowrap">{match.homeScore} – {match.awayScore}</Box>
         ) : (
           <Box as="span" color="brand.amber" fontSize={{ base: '14px', md: '17px' }} mx="2px">vs</Box>
         )}
-        <Shield team={match.away} />
-        {code(match.away)}
+        <Team team={match.away} />
       </Flex>
 
       {details.length > 0 && (

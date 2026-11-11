@@ -74,9 +74,7 @@ export default function StatsSection() {
               Estadísticas
             </Text>
           </Box>
-          <Text maxW="380px" color="brand.warmGray" lineHeight={1.6} fontSize="15px">
-            {playerData.statsIntro}
-          </Text>
+        
         </Flex>
 
         <ScoutingCard />

@@ -1,8 +1,3 @@
-// ─────────────────────────────────────────────────────────────
-// Contacto — Tarjetas mejoradas: redes en tarjetas con ícono de
-// fondo + representación con logo, "Escribile por" y botón.
-// Todo sale de playerData (socialMedia y contact).
-// ─────────────────────────────────────────────────────────────
 import { useRef } from 'react'
 import { Box, Flex, Grid, Text, Image } from '@chakra-ui/react'
 import { FiArrowUpRight } from 'react-icons/fi'
@@ -65,11 +60,11 @@ function SocialCard({ item }) {
         '& .ghost': { transition: `color .3s ease, transform .5s ${EASE}` },
         '& .icon, & .arrow': { transition: 'background .25s ease, border-color .25s ease, color .25s ease' },
         [HOVER]: {
-          '&:hover': { borderColor: isIg ? '#ee2a7b' : 'brand.amber' },
-          '&:hover .ghost': { color: 'rgba(189,167,142,.2)', transform: 'rotate(-6deg) scale(1.04)' },
+          '&:hover': { borderColor: isIg ? '#ee2a7b' : 'brand.boneWarm' },
+          '&:hover .ghost': { color: 'rgba(189,167,142,.2)' },
           '&:hover .icon': isIg
             ? { bgImage: IG_GRADIENT, borderColor: 'transparent', color: 'white' }
-            : { bg: 'brand.amber', borderColor: 'brand.amber', color: '#1a1410' },
+            : { bg: 'brand.boneWarm', borderColor: 'brand.boneWarm', color: '#1a1410' },
           '&:hover .arrow': { bg: 'brand.amber', borderColor: 'brand.amber', color: '#1a1410' },
         },
       }}
@@ -112,7 +107,7 @@ function RepCard({ item }) {
         // Brillo suave detrás del logo, con el color de cada agencia
         '&::before': {
           content: '""', position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: `radial-gradient(circle at 12% 30%, ${item.hoverColor || 'rgba(189,167,142,.2)'}, transparent 55%)`,
+          background: `radial-gradient(circle at 12% 30%, ${item.hoverColor || 'rgba(189,167,142,.2)'}, transparent 45%)`,
           opacity: 0, transition: 'opacity .35s ease',
         },
         '& .cta': { transition: 'background .25s ease, border-color .25s ease' },
@@ -123,7 +118,7 @@ function RepCard({ item }) {
         },
       }}
     >
-      <Flex position="relative" align="center" gap={{ base: 3.5, md: 5 }} pb={{ base: 4, md: 5 }} borderBottom="1px solid" borderColor={LINE}>
+      <Flex position="relative" align="center" gap={{ base: 3.5, md: 5 }} pb={{ base: 4, md: 5 }}  borderColor={LINE}>
         <Flex flexShrink={0} boxSize={{ base: '64px', md: '84px' }} borderRadius="16px" bg="rgba(239,230,218,.04)"
               border="1px solid" borderColor={LINE} align="center" justify="center">
           <Image src={item.image} alt="" boxSize={{ base: '52px', md: '70px' }} objectFit="contain" />
@@ -138,18 +133,7 @@ function RepCard({ item }) {
           <Text fontFamily="mono" fontSize="13px" fontWeight={500} color="brand.warmGray" mt={1}>{item.handle}</Text>
         </Box>
       </Flex>
-      {item.forWhom && (
-        <Text position="relative" mt={4} mb={4} fontSize="14px" lineHeight={1.55} color="brand.warmGray">
-          <Text as="span" color="brand.cream" fontWeight={600}>Escribile por: </Text>{item.forWhom}.
-        </Text>
-      )}
-      {item.cta && (
-        <Flex className="cta" position="relative" alignSelf="flex-start" align="center" gap={2} mt="auto" px={4} py="9px"
-              borderRadius="full" border="1px solid" borderColor="brand.amberLight" fontFamily="mono" fontWeight={600}
-              fontSize="13px" letterSpacing="0.08em" color="brand.cream" aria-hidden="true">
-          <Box as={FaInstagram} boxSize="15px" /> {item.cta}
-        </Flex>
-      )}
+      
     </Box>
   )
 }
@@ -183,16 +167,14 @@ export default function ContactSection() {
         <Flex ref={headerRef} justify="space-between" align="flex-end" gap={6} flexWrap="wrap">
           <Box>
             <Text fontFamily="mono" fontSize="12px" fontWeight="500" color="brand.cream" textTransform="uppercase" letterSpacing="0.3em">
-              Redes y representación
+              Redes y Agencias
             </Text>
             <Text as="h2" id="contact-title" fontFamily="heading" fontSize={{ base: '56px', md: '7vw', xl: '96px' }} lineHeight={0.88}
                   color="brand.amber" mt="6px">
               Contacto
             </Text>
           </Box>
-          {playerData.contactIntro && (
-            <Text maxW="42ch" color="brand.warmGray" lineHeight={1.6} fontSize="15px">{playerData.contactIntro}</Text>
-          )}
+          
         </Flex>
 
         <Group title="Redes sociales">

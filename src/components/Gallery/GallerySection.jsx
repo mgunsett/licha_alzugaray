@@ -240,7 +240,7 @@ export default function GallerySection() {
       <Box maxW="1320px" mx="auto">
         <Box ref={headerRef}>
           <Text fontFamily="mono" fontSize="12px" fontWeight="500" color="brand.cream" textTransform="uppercase" letterSpacing="0.3em">
-            En cancha
+            fotos
           </Text>
           <Text as="h2" id="galeria-title" fontFamily="heading" fontSize={{ base: '56px', md: '7vw', xl: '96px' }} lineHeight={0.88}
                 color="brand.amber" mt="6px">

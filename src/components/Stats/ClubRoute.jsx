@@ -101,21 +101,14 @@ export default function ClubRoute() {
       <Flex justify="space-between" align="flex-end" gap={6} wrap="wrap" mb={6} data-reveal="">
         <Box>
           <Text fontFamily="mono" fontSize="12px" fontWeight="500" letterSpacing="0.3em" textTransform="uppercase" color="brand.cream">
-            Trayectoria · {playerData.clubs.length} clubes en {nCountries} países
+            clubes
           </Text>
           <Text as="h3" fontFamily="heading" fontSize={{ base: '56px', md: '7vw', xl: '96px' }} lineHeight={0.88} mt="6px">
-            Recorrido
+            Trayectoria
           </Text>
         </Box>
         <Flex gap={6} align="center" wrap="wrap">
-          <Flex gap="18px" wrap="wrap" aria-hidden="true">
-            {legend.map((c) => (
-              <Flex key={c} align="center" gap="7px">
-                <Box w="9px" h="9px" borderRadius="full" bg={countries[c]?.color} />
-                <Text fontFamily="mono" fontSize="12px" letterSpacing="0.08em" color="brand.warmGray">{c}</Text>
-              </Flex>
-            ))}
-          </Flex>
+          
           <Flex gap={2}>
             {arrowBtn(-1, edges.start, 'Clubes más recientes')}
             {arrowBtn(1, edges.end, 'Clubes anteriores')}
