@@ -138,7 +138,7 @@ export default function Hero() {
           zIndex={2}
           left={{ base: '16px', md: 'clamp(16px, 6vw, 96px)' }}
           right={{ base: '16px', md: 'auto' }}
-          bottom={{ base: 'max(calc(20 * var(--sv)), 140px)', md: 'max(calc(19 * var(--sv)), 128px)' }}
+          bottom={{ base: 'max(calc(20 * var(--sv)), 190px)', md: 'max(calc(19 * var(--sv)), 128px)' }}
         >
           <Box
             ref={backRef}
@@ -179,7 +179,7 @@ export default function Hero() {
             textTransform="uppercase"
             color="brand.amber"
             sx={{ [LANDSCAPE]: { fontSize: u(12) } }}
-            ml='30px'
+            ml={{base:'8px', md:'30px'}}
           >
             <Image src={playerData.logoCurrentClub} alt="" w={{ base: u(18), md: u(20) }} h="auto" />
              {playerData.position}
@@ -187,20 +187,20 @@ export default function Hero() {
 
           <Heading
             as="h1"
-            mt={u(10)}
+            mt={{base:u(6), md:u(10)}}
             fontFamily="heading"
             fontWeight="400"
             lineHeight={0.84}
-            fontSize={{ base: u(84), md: u(123), lg: u(216) }}
+            fontSize={{ base: u(104), md: u(123), lg: u(216) }}
             sx={{ [LANDSCAPE]: { fontSize: u(100) } }}
           >
-            <Box as="span" display="block" overflow="hidden" ml='30px'>
+            <Box as="span" display="block" overflow="hidden" ml={{base:'10px', md:'30px'}}>
               <Box as="span" ref={addLine} display="block" fontSize="0.42em" letterSpacing="0.08em" color="brand.cream">
                 {playerData.name}
               </Box>
             </Box>
             <Box as="span" display="block" overflow="hidden">
-              <Box as="span" ref={addLine} display="block" color="brand.amber">
+              <Box as="span" ref={addLine} display="block" color="brand.amber" >
                 {playerData.fullName}
               </Box>
             </Box>

@@ -64,8 +64,8 @@ function Slot({ match, kind }) {
       columnGap={3}
       px={{ base: 4, md: 'clamp(16px, 6vw, 96px)' }}
       pl={{ md: isNext ? 'clamp(16px, 3vw, 48px)' : undefined }}
-      py={{ base: '10px', md: 4 }}
-      pb={{ md: '18px' }}
+      pt={{ base: 6, md: 4 }}
+      pb={{base: 6,  md: '18px' }}
       bg={isNext ? 'rgba(122,31,31,0.35)' : 'transparent'}
       borderTop={{ base: isNext ? '1px solid rgba(255,255,255,0.08)' : 'none', md: 'none' }}
       borderLeft={{ base: 'none', md: isNext ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
