@@ -1,100 +1,93 @@
-import { useEffect, useRef } from 'react'
-import { Box, Flex, Text, HStack, Link, useToken } from '@chakra-ui/react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { LiaLaptopCodeSolid } from 'react-icons/lia'
+// ─────────────────────────────────────────────────────────────
+// Footer (Pulido): logo del navbar, copyright y, a la derecha,
+// "Volver arriba" junto al crédito de desarrollo.
+// ─────────────────────────────────────────────────────────────
+import { Box, Flex, Grid, Image, Link, Text } from '@chakra-ui/react'
+import { FiArrowUp } from 'react-icons/fi'
+import BrandLogo from './BrandLogo'
+import { scrollTo } from './Navbar'
 import { playerData } from '../../data/playerData'
+import sportfolioWeb from '@assets/logo_sport.png'
 
-gsap.registerPlugin(ScrollTrigger)
+const EASE = 'cubic-bezier(0.23, 1, 0.32, 1)'
+const HOVER = '@media (hover: hover) and (pointer: fine)'
+const focus = { outline: '2px solid', outlineColor: 'brand.amber', outlineOffset: '3px', borderRadius: '6px' }
 
 export default function Footer() {
-  const ref = useRef(null)
-  const [devCream] = useToken('colors', ['dev.cream'])
+  const year = new Date().getFullYear()
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(ref.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          force3D: false, // avoid a leftover 3D layer that blurs text
-          scrollTrigger: {
-            trigger: ref.current,
-            start: 'top 95%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-          // strip the inline transform once done → text renders crisp
-          onComplete: () => gsap.set(ref.current, { clearProps: 'transform' }),
-        }
-      )
-    })
-    return () => ctx.revert()
-  }, [])
+  const toTop = (e) => {
+    e.preventDefault()
+    scrollTo('#hero')
+  }
 
   return (
-    <Box
-      ref={ref}
-      as="footer"
-      bg="brand.brown"
-      py={16}
-      px={{ base: 6, md: 12, lg: 20 }}
-       sx={{
-          maskImage: 'linear-gradient(to bottom, #2324249f 0%, black 12%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, #2324249f   0%, black 12%)',
-        }}
-    >
-      <Flex
-        direction={{ base: 'column', md: 'row' }}
-        align="center"
-        justify="space-between"
-        flexWrap="wrap"
-        gap={{ base: 8, md: 4 }}
+    <Box as="footer" bg="brand.brown" borderTop="1px solid" borderColor="whiteAlpha.100" px={{ base: 4, md: 8, lg: 14 }}>
+      <Grid
+        maxW="1320px"
+        mx="auto"
+        py={{ base: 10, md: 12 }}
+        templateColumns={{ base: '1fr', md: '1fr auto 1fr' }}
+        alignItems="center"
+        justifyItems={{ base: 'center', md: 'stretch' }}
+        gap={6}
       >
-        <Box
-          as="a"
-          href="#hero"
-          style={{ textDecoration: 'none' }}
-        >
-          <Text
-            fontFamily="heading"
-            fontSize={{ base: '46px', md: '36px' }}
-            letterSpacing="0.08em"
-            color="brand.amber"
-          >
-            {playerData.initials}
-            <Box as="span" color="brand.gray2" ml="1px">_</Box>
-          </Text>
+        {/* Logo → inicio */}
+        <Box as="a" href="#hero" onClick={toTop} aria-label={`${playerData.shortName}, volver al inicio`}
+             justifySelf={{ md: 'start' }} _focusVisible={focus}>
+          <BrandLogo />
         </Box>
 
-        <Text
-          fontFamily="mono"
-          fontSize="12px"
-          letterSpacing="0.12em"
-          textTransform="uppercase"
-          color="brand.bone"
-          textAlign="center"
-        >
-          © 2026 {playerData.displayName} · Todos los derechos reservados
+        <Text fontFamily="mono" fontSize="14px" fontWeight={500} letterSpacing="0.04em" color="brand.warmGray" textAlign="center">
+          © {year} {playerData.shortName}. Todos los derechos reservados.
         </Text>
 
-        <Text fontSize="12px" color="brand.bone" letterSpacing="0.05em">
-            Desarrollo Web -{' '}
-            <Link
-            href="https://matiasgunsett.netlify.app/"
-            isExternal
-            color="dev.green"
-            _hover={{ borderColor: 'rgba(232,213,163,0.44)', color: 'rgba(232,213,163,0.5)' }}
-            transition="color 0.3s"
+        {/* Volver arriba + crédito */}
+        <Flex align="center" gap={4} wrap="wrap" justify={{ base: 'center', md: 'flex-end' }} justifySelf={{ md: 'end' }}>
+          <Flex
+            as="a"
+            href="#hero"
+            onClick={toTop}
+            align="center"
+            gap={2}
+            pl={4}
+            pr={3.5}
+            py="9px"
+            borderRadius="full"
+            border="1px solid"
+            borderColor="whiteAlpha.300"
+            fontFamily="mono"
             fontSize="14px"
-            >
-              Matias Gunsett <LiaLaptopCodeSolid style={{ marginLeft: '4px', display: 'inline-block', verticalAlign: 'middle', fontSize: '20px', color: devCream }} />
+            fontWeight={600}
+            letterSpacing="0.04em"
+            color="brand.bone"
+            whiteSpace="nowrap"
+            transition={`border-color .2s ease, transform .16s ${EASE}`}
+            _active={{ transform: 'scale(0.97)' }}
+            _focusVisible={focus}
+            sx={{
+              '& svg': { transition: `transform .25s ${EASE}` },
+              [HOVER]: {
+                '&:hover': { borderColor: 'brand.amber' },
+                '&:hover svg': { transform: 'translateY(-2px)' },
+              },
+            }}
+          >
+            Volver arriba
+            <Box as={FiArrowUp} boxSize="16px" aria-hidden="true" />
+          </Flex>
+
+          {/* Crédito de desarrollo (no tocar) */}
+          <Flex direction="column" gap="3px" fontFamily="mono" fontSize="11px" fontWeight={500} letterSpacing="0.08em"
+                textTransform="uppercase" color="whiteAlpha.400">
+            Desarrollo web
+            <Link href="https://matiasgunsett.netlify.app/sportfolio" isExternal _focusVisible={focus}
+                  opacity={0.85} transition="opacity .25s" sx={{ [HOVER]: { '&:hover': { opacity: 1 } } }}>
+              <Image src={sportfolioWeb} alt="Sportfolio Web" display="block" w="85px" h="auto" />
             </Link>
-          </Text>
-      </Flex>
+          </Flex>
+        </Flex>
+      </Grid>
     </Box>
   )
 }
