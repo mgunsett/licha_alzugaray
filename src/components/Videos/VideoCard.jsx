@@ -21,12 +21,6 @@ const spin = keyframes`
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 `
-// Parpadeo del punto REC
-const blink = keyframes`
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.2; }
-`
-
 export function VideoCard({ video, index = 0, onOpen }) {
   const [hovered, setHovered] = useState(false)
 
@@ -117,7 +111,7 @@ export function VideoCard({ video, index = 0, onOpen }) {
             borderRadius="5px"
             zIndex={4}
           >
-            <Box w="6px" h="6px" borderRadius="full" bg="brand.rec" animation={`${blink} 1.6s ease-in-out infinite`} />
+            <Box w="6px" h="6px" borderRadius="full" bg="brand.amber" />
             <Text fontFamily="mono" fontSize="9px" letterSpacing="0.24em" textTransform="uppercase" color="white">
               {video.category}
             </Text>
@@ -203,9 +197,16 @@ export function VideoCard({ video, index = 0, onOpen }) {
             transition="opacity 0.35s ease"
             pointerEvents="none"
           >
-            <Text fontFamily="heading" fontSize="xl" lineHeight={1} color="white" noOfLines={1}>
-              {video.title}
-            </Text>
+            <Box minW={0}>
+              <Text fontFamily="heading" fontSize="2xl" lineHeight={1} color="white" noOfLines={1}>
+                {video.title}
+              </Text>
+              {video.league && (
+                <Text fontFamily="mono" fontSize="12px" letterSpacing="0.06em" color="brand.cream" opacity={0.8} mt={1} noOfLines={1}>
+                  {video.league}
+                </Text>
+              )}
+            </Box>
             <Text fontFamily="mono" fontSize="11px" letterSpacing="0.2em" color="brand.amber" flexShrink={0}>
               {`0${index + 1}`}
             </Text>
