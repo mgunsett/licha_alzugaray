@@ -240,12 +240,16 @@ export const playerData = {
     },
   ],
 
+  contactIntro: 'Seguilo en sus redes o escribí directamente a quien lleva cada tema.',
+
+  // Redes del jugador. note = texto chico debajo del usuario
   socialMedia: [
     {
       label: 'Instagram',
       icon: FaInstagram,
       iconBg: FaInstagram,
       handle: '@lisandroalzugaray',
+      note: 'Su cuenta personal',
       url: 'https://www.instagram.com/lisandroalzugaray/',
       hoverColor: '#E1306C',
       hoverGradient: 'insta-gradient',
@@ -254,28 +258,34 @@ export const playerData = {
       label: 'TransferMarkt',
       image: logoTransfermarkt,
       iconBg: IoMdStats,
-      handle: '@lisandro-alzugaray',
+      handle: 'lisandro-alzugaray',
+      note: 'Ficha y valor de mercado',
       url: 'https://www.transfermarkt.com.ar/lisandro-alzugaray/profil/spieler/396920',
-      hoverColor: 'brand.brownLight',
+      hoverColor: 'brand.amber',
     },
   ],
 
+  // Representación. forWhom = para qué escribirle; cta = texto del botón
   contact: [
     {
-      title:      'Representante Deportivo',
+      title:      'Representación deportiva',
       label:      'Moon Sports Group',
       image:      logoMoonSports,
       handle:     '@moonsportsgroup_',
+      forWhom:    'clubes, intermediarios y propuestas deportivas',
+      cta:        'Escribir a Moon Sports',
       url:        'https://www.instagram.com/moonsportsgroup_/',
-      hoverColor: 'rgba(139,69,19,0.18)',
+      hoverColor: 'rgba(189,167,142,0.30)',
     },
     {
-      title:      'Contacto Marketing',
-      label:      'led sports marketing',
+      title:      'Marketing y marcas',
+      label:      'LED Sports Marketing',
       image:      logoLedSports,
       handle:     '@_ledsports',
+      forWhom:    'marcas, campañas, eventos y prensa',
+      cta:        'Escribir a LED Sports',
       url:        'https://www.instagram.com/_ledsports/',
-      hoverColor: 'rgba(212,168,75,0.18)',
+      hoverColor: 'rgba(122,31,31,0.40)',
     },
   ],
 }
