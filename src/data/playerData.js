@@ -206,16 +206,29 @@ export const playerData = {
     },
   ],
 
-  // Las primeras 4 se ven sin abrir "Ver más": van las mejores
-  gallery: [
-    { id: 1, src: fotoFestejo,       alt: 'Lisandro Alzugaray festeja un gol con Universitario en el Monumental', caption: 'Festejo en el Monumental',   category: 'Universitario', aspect: 'wide' },
-    { id: 2, src: fotoRemate,        alt: 'Lisandro Alzugaray remata con la camiseta de Universitario',            caption: 'Remate · Universitario',     category: 'Universitario', aspect: 'tall' },
-    { id: 3, src: fotoVsNacional,    alt: 'Lisandro Alzugaray conduce ante Nacional por la Copa Libertadores',     caption: 'Libertadores · vs Nacional', category: 'Universitario', aspect: 'square' },
-    { id: 4, src: fotoSalida,        alt: 'Lisandro Alzugaray sale a la cancha con el plantel de Universitario',   caption: 'Salida al campo',            category: 'Universitario', aspect: 'tall' },
-    { id: 5, src: fotoConduccion,    alt: 'Lisandro Alzugaray conduce la pelota con el número 30 de Universitario', caption: 'Liga 1 · Universitario',    category: 'Universitario', aspect: 'tall' },
-    { id: 6, src: fotoDisputa,       alt: 'Lisandro Alzugaray disputa la pelota entre dos rivales',                caption: 'Disputa · Universitario',    category: 'Universitario', aspect: 'tall' },
-    { id: 7, src: fotoAlternativa,   alt: 'Lisandro Alzugaray con la camiseta alternativa de Universitario',       caption: 'Camiseta alternativa',       category: 'Universitario', aspect: 'square' },
-    { id: 8, src: fotoEntrenamiento, alt: 'Lisandro Alzugaray en la entrada en calor con pechera',                 caption: 'Entrada en calor',           category: 'Entrenamiento', aspect: 'wide' },
+  // Galería por categoría. Las primeras 4 fotos de cada una se ven sin abrir "Ver más": van las mejores.
+  // pos = objectPosition, para que el recorte no corte la cara.
+  galleries: [
+    {
+      key: 'universitario',
+      name: 'Universitario',
+      photos: [
+        { src: fotoFestejo,     alt: 'Lisandro Alzugaray festeja un gol con Universitario en el Monumental', caption: 'Festejo en el Monumental',   pos: 'center 35%' },
+        { src: fotoRemate,      alt: 'Lisandro Alzugaray remata con la camiseta de Universitario',            caption: 'Remate',                     pos: 'center 55%' },
+        { src: fotoVsNacional,  alt: 'Lisandro Alzugaray conduce ante Nacional por la Copa Libertadores',     caption: 'Libertadores · vs Nacional', pos: 'center 45%' },
+        { src: fotoSalida,      alt: 'Lisandro Alzugaray sale a la cancha con el plantel de Universitario',   caption: 'Salida al campo',            pos: 'center 25%' },
+        { src: fotoConduccion,  alt: 'Lisandro Alzugaray conduce la pelota con el número 30 de Universitario', caption: 'Liga 1',                    pos: 'center 30%' },
+        { src: fotoDisputa,     alt: 'Lisandro Alzugaray disputa la pelota entre dos rivales',                caption: 'Disputa',                    pos: 'center 35%' },
+        { src: fotoAlternativa, alt: 'Lisandro Alzugaray con la camiseta alternativa de Universitario',       caption: 'Camiseta alternativa',       pos: 'center 35%' },
+      ],
+    },
+    {
+      key: 'entrenamiento',
+      name: 'Entrenamiento',
+      photos: [
+        { src: fotoEntrenamiento, alt: 'Lisandro Alzugaray en la entrada en calor con pechera', caption: 'Entrada en calor', pos: 'center 22%' },
+      ],
+    },
   ],
 
   socialMedia: [
