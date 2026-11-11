@@ -26,6 +26,33 @@ import fotoConduccion from '@assets/gallery/alzugaray-universitario-conduccion.w
 import fotoSalida from '@assets/gallery/alzugaray-universitario-salida.webp'
 import fotoRemate from '@assets/gallery/alzugaray-universitario-remate.webp'
 import fotoFestejo from '@assets/gallery/alzugaray-universitario-festejo.webp'
+// Galería: fotos sumadas en el rediseño
+import gGritoGol from '@assets/gallery/alzugaray-grito-gol.webp'
+import gFestejoRodillas from '@assets/gallery/alzugaray-festejo-rodillas.webp'
+import gHinchadaFondo from '@assets/gallery/alzugaray-hinchada-fondo.webp'
+import gPrimerPlano from '@assets/gallery/alzugaray-primer-plano.webp'
+import gFestejoSinCamiseta from '@assets/gallery/alzugaray-festejo-sin-camiseta.webp'
+import gLa30Granate from '@assets/gallery/alzugaray-la-30-granate.webp'
+import gConduccionMarca from '@assets/gallery/alzugaray-conduccion-marca.webp'
+import gPelotaParadaEspalda from '@assets/gallery/alzugaray-pelota-parada-espalda.webp'
+import gEspalda30 from '@assets/gallery/alzugaray-espalda-30.webp'
+import gSalidaPlantel from '@assets/gallery/alzugaray-salida-plantel.webp'
+import gConcentracion from '@assets/gallery/alzugaray-concentracion.webp'
+import gPelotaAlPie from '@assets/gallery/alzugaray-pelota-al-pie.webp'
+import gRemateMediaDistancia from '@assets/gallery/alzugaray-remate-media-distancia.webp'
+import gDisputaGranate from '@assets/gallery/alzugaray-disputa-granate.webp'
+import gFestejoCamisetaMano from '@assets/gallery/alzugaray-festejo-camiseta-mano.webp'
+import gRemateTribuna from '@assets/gallery/alzugaray-remate-tribuna.webp'
+import gEnCanchaGranate from '@assets/gallery/alzugaray-en-cancha-granate.webp'
+import gCaminoGranate from '@assets/gallery/alzugaray-camino-granate.webp'
+import gPelotaParadaTribuna from '@assets/gallery/alzugaray-pelota-parada-tribuna.webp'
+import gAlCampo from '@assets/gallery/alzugaray-al-campo.webp'
+import gCredencial from '@assets/gallery/alzugaray-credencial.webp'
+import gViajePlantel from '@assets/gallery/alzugaray-viaje-plantel.webp'
+import gFormacionLiga1 from '@assets/gallery/alzugaray-formacion-liga1.webp'
+import gEntradaCalorPechera from '@assets/gallery/alzugaray-entrada-calor-pechera.webp'
+import gEntrenamientoPelota from '@assets/gallery/alzugaray-entrenamiento-pelota.webp'
+import gElongacionPlantel from '@assets/gallery/alzugaray-elongacion-plantel.webp'
 // Video
 import fotoPerfilVideo from '@assets/videos/alzugaray-perfil-video.webp'
 // Prensa
@@ -222,19 +249,45 @@ export const playerData = {
       key: 'universitario',
       name: 'Universitario',
       photos: [
-        { src: fotoFestejo,     alt: 'Lisandro Alzugaray festeja un gol con Universitario en el Monumental', caption: 'Festejo en el Monumental',   pos: 'center 35%' },
-        { src: fotoRemate,      alt: 'Lisandro Alzugaray remata con la camiseta de Universitario',            caption: 'Remate',                     pos: 'center 55%' },
-        { src: fotoVsNacional,  alt: 'Lisandro Alzugaray conduce ante Nacional por la Copa Libertadores',     caption: 'Libertadores · vs Nacional', pos: 'center 45%' },
-        { src: fotoSalida,      alt: 'Lisandro Alzugaray sale a la cancha con el plantel de Universitario',   caption: 'Salida al campo',            pos: 'center 25%' },
-        { src: fotoConduccion,  alt: 'Lisandro Alzugaray conduce la pelota con el número 30 de Universitario', caption: 'Liga 1',                    pos: 'center 30%' },
-        { src: fotoDisputa,     alt: 'Lisandro Alzugaray disputa la pelota entre dos rivales',                caption: 'Disputa',                    pos: 'center 35%' },
-        { src: fotoAlternativa, alt: 'Lisandro Alzugaray con la camiseta alternativa de Universitario',       caption: 'Camiseta alternativa',       pos: 'center 35%' },
+        { src: gGritoGol, alt: 'Lisandro Alzugaray grita un gol con los puños apretados y la camiseta de Universitario', caption: 'El grito del gol', pos: 'center 30%' },
+        { src: fotoRemate, alt: 'Lisandro Alzugaray remata con la camiseta de Universitario', caption: 'Remate', pos: 'center 55%' },
+        { src: gFestejoRodillas, alt: 'Lisandro Alzugaray festeja de rodillas con el brazo en alto y la 30 en la espalda', caption: 'Festejo de rodillas', pos: 'center 40%' },
+        { src: gHinchadaFondo, alt: 'Lisandro Alzugaray con la camiseta granate frente a la tribuna de Universitario', caption: 'Con la hinchada de fondo', pos: 'center 60%' },
+        { src: gPrimerPlano, alt: 'Primer plano de Lisandro Alzugaray con la camiseta crema de Universitario', caption: 'Primer plano', pos: 'center 25%' },
+        { src: fotoFestejo, alt: 'Lisandro Alzugaray festeja un gol con Universitario en el Monumental', caption: 'Festejo en el Monumental', pos: 'center 35%' },
+        { src: gFestejoSinCamiseta, alt: 'Lisandro Alzugaray festeja un gol sin camiseta, revoleándola', caption: 'Festejo sin camiseta', pos: 'center 30%' },
+        { src: gLa30Granate, alt: 'Lisandro Alzugaray de espaldas con la 30 granate, a punto de pegarle a la pelota', caption: 'La 30 granate', pos: 'center 35%' },
+        { src: gPelotaParadaEspalda, alt: 'Lisandro Alzugaray de espaldas con la 30, frente a la pelota antes de un tiro libre', caption: 'Pelota parada', pos: 'center 50%' },
+        { src: fotoVsNacional, alt: 'Lisandro Alzugaray conduce ante Nacional por la Copa Libertadores', caption: 'Libertadores · vs Nacional', pos: 'center 45%' },
+        { src: gConduccionMarca, alt: 'Lisandro Alzugaray conduce la pelota ante la marca de un rival', caption: 'Conducción ante la marca', pos: 'center 40%' },
+        { src: gEspalda30, alt: 'Lisandro Alzugaray de espaldas con la camiseta alternativa y el número 30', caption: 'Con la 30 en la espalda', pos: 'center 30%' },
+        { src: fotoSalida, alt: 'Lisandro Alzugaray sale a la cancha con el plantel de Universitario', caption: 'Salida al campo', pos: 'center 25%' },
+        { src: gConcentracion, alt: 'Lisandro Alzugaray con la camiseta granate, concentrado durante un partido', caption: 'Concentración', pos: 'center 30%' },
+        { src: gSalidaPlantel, alt: 'Lisandro Alzugaray sale a la cancha en fila con el plantel de Universitario', caption: 'Salida al campo con el plantel', pos: 'center 30%' },
+        { src: gPelotaAlPie, alt: 'Lisandro Alzugaray avanza con la pelota al pie con la camiseta crema', caption: 'Con la pelota al pie', pos: 'center 40%' },
+        { src: gRemateMediaDistancia, alt: 'Lisandro Alzugaray remata de media distancia con la camiseta granate', caption: 'Remate de media distancia', pos: 'center 55%' },
+        { src: gFestejoCamisetaMano, alt: 'Lisandro Alzugaray festeja con la camiseta en la mano ante la tribuna', caption: 'Festejo con la camiseta en la mano', pos: 'center 30%' },
+        { src: gDisputaGranate, alt: 'Lisandro Alzugaray disputa la pelota con un rival de celeste', caption: 'Disputa de pelota', pos: 'center 50%' },
+        { src: gEnCanchaGranate, alt: 'Lisandro Alzugaray en la cancha con la camiseta granate de Universitario', caption: 'En cancha con la granate', pos: 'center 45%' },
+        { src: gCaminoGranate, alt: 'Lisandro Alzugaray camina por la cancha con la camiseta granate', caption: 'Con la camiseta granate', pos: 'center 30%' },
+        { src: gAlCampo, alt: 'Lisandro Alzugaray camina hacia el campo de juego con la camiseta granate', caption: 'Al campo de juego', pos: 'center 30%' },
+        { src: fotoConduccion, alt: 'Lisandro Alzugaray conduce la pelota con el número 30 de Universitario', caption: 'Liga 1', pos: 'center 30%' },
+        { src: gRemateTribuna, alt: 'Lisandro Alzugaray remata con la camiseta granate frente a la tribuna', caption: 'Remate frente a la tribuna', pos: 'center 55%' },
+        { src: fotoDisputa, alt: 'Lisandro Alzugaray disputa la pelota entre dos rivales', caption: 'Disputa', pos: 'center 35%' },
+        { src: fotoAlternativa, alt: 'Lisandro Alzugaray con la camiseta alternativa de Universitario', caption: 'Camiseta alternativa', pos: 'center 35%' },
+        { src: gCredencial, alt: 'Retrato de Lisandro Alzugaray con la chomba de Universitario y la credencial', caption: 'Con la credencial del club', pos: 'center 25%' },
+        { src: gViajePlantel, alt: 'Lisandro Alzugaray de viaje con la ropa del club', caption: 'De viaje con el plantel', pos: 'center 30%' },
+        { src: gPelotaParadaTribuna, alt: 'Lisandro Alzugaray prepara una pelota parada con la hinchada de Universitario de fondo', caption: 'Pelota parada con la tribuna de fondo', pos: 'center 55%' },
+        { src: gFormacionLiga1, alt: 'El equipo de Universitario formado antes de un partido del Apertura de la Liga 1', caption: 'Formación · Liga 1 Apertura', pos: 'center 45%' },
       ],
     },
     {
       key: 'entrenamiento',
       name: 'Entrenamiento',
       photos: [
+        { src: gEntradaCalorPechera, alt: 'Lisandro Alzugaray en la entrada en calor con pechera naranja', caption: 'Entrada en calor', pos: 'center 30%' },
+        { src: gEntrenamientoPelota, alt: 'Lisandro Alzugaray entrena con la pelota en el predio del club', caption: 'Entrenamiento con pelota', pos: 'center 40%' },
+        { src: gElongacionPlantel, alt: 'Lisandro Alzugaray elonga con el plantel durante un entrenamiento', caption: 'Elongación con el plantel', pos: 'center 45%' },
         { src: fotoEntrenamiento, alt: 'Lisandro Alzugaray en la entrada en calor con pechera', caption: 'Entrada en calor', pos: 'center 22%' },
       ],
     },
