@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://ronaldomartinez.com/sitemap.xml
+Sitemap: https://lisandroalzugaray.com/sitemap.xml

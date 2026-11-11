@@ -1,0 +1,16 @@
+{
+  "name": "Lisandro Alzugaray | Sitio oficial",
+  "short_name": "Licha Alzugaray",
+  "description": "Sitio oficial de Lisandro Alzugaray, extremo derecho de Universitario de Deportes.",
+  "lang": "es-AR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#141516",
+  "theme_color": "#141516",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

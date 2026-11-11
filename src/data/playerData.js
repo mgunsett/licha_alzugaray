@@ -96,7 +96,7 @@ export const playerData = {
   
 
   // Texto de apertura de Estadísticas
-  statsIntro: 'Extremo derecho de pie hábil derecho. Diez clubes en cuatro países y campeón de la Copa Sudamericana 2023 con Liga de Quito.',
+  statsIntro: 'Extremo derecho de pie hábil izquierdo. Diez clubes en cuatro países y campeón de la Copa Sudamericana 2023 con Liga de Quito.',
   seasonLabel: 'Temporada 2026',
 
   // Zona de influencia en la cancha (viewBox 68×105, ataca hacia arriba).
