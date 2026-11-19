@@ -1,6 +1,8 @@
 import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import PitchZone from './PitchZone'
 import { playerData } from '../../data/playerData'
+import useSeasonStats from '../../hooks/useSeasonStats'
+import { seasonTiles, seasonTitle } from '../../lib/seasonTiles'
 
 const LINE = '1px solid rgba(255,255,255,0.08)'
 
@@ -70,11 +72,23 @@ function Zone() {
   )
 }
 
+// Cómo se dibuja cada dato de la API: mismas etiquetas y destacados
+// que los valores de playerData.
+const TILE_STYLE = {
+  Minutos: { label: 'Minutos jugados' },
+  Goles: { highlight: true },
+  Valoración: { highlight: true },
+}
+
 function Season() {
-  const stats = playerData.seasonStats
+  // Temporada en curso desde API-Football; sin datos, los valores fijos.
+  const season = useSeasonStats()
+  const stats = season
+    ? seasonTiles(season).map((t) => ({ ...t, ...TILE_STYLE[t.label] }))
+    : playerData.seasonStats
   return (
     <Box>
-      <PanelTitle title={playerData.seasonLabel} aside={playerData.currentClub} />
+      <PanelTitle title={seasonTitle(season, playerData.seasonLabel)} aside={playerData.currentClub} />
       <Grid as="dl" templateColumns="1fr 1fr">
         {stats.map((s, i) => {
           const odd = i % 2 === 0

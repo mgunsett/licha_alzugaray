@@ -6,12 +6,16 @@ import { CustomEase } from 'gsap/CustomEase'
 import ScoutingCard from './ScoutingCard'
 import ClubRoute from './ClubRoute'
 import { playerData } from '../../data/playerData'
+import useSeasonStats from '../../hooks/useSeasonStats'
+import { seasonTitle } from '../../lib/seasonTiles'
 
 gsap.registerPlugin(ScrollTrigger, CustomEase)
 const EASE = CustomEase.create('statsOut', '0.23, 1, 0.32, 1')
 
 export default function StatsSection() {
   const sectionRef = useRef(null)
+  // Con totales de la API el título muestra sólo la temporada en curso.
+  const season = useSeasonStats()
 
   // Una sola animación coordinada: bloques que suben en orden, barras que se llenan
   // y la zona de influencia que aparece. Se dispara una vez al entrar.
@@ -68,7 +72,7 @@ export default function StatsSection() {
         <Flex justify="space-between" align="flex-end" gap={8} wrap="wrap" mb={11} data-reveal="">
           <Box>
             <Text fontFamily="mono" fontSize="12px" fontWeight="500" letterSpacing="0.3em" textTransform="uppercase" color="brand.cream">
-              {playerData.seasonLabel}
+              {seasonTitle(season, playerData.seasonLabel)}
             </Text>
             <Text as="h2" fontFamily="heading" fontSize={{ base: '56px', md: '7vw', xl: '96px' }} lineHeight={0.88} color="brand.amber" mt="6px">
               Estadísticas
